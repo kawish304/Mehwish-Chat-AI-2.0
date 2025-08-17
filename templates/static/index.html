@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish AI Pro 5.0</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="chat-header">
+            <div class="logo">
+                <h1>Mehwish AI Pro 5.0</h1>
+                <p>Islamic Digital Assistant</p>
+            </div>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="ur">Urdu</option>
+                    <option value="roman_urdu">Roman Urdu</option>
+                    <option value="ar">Arabic</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="chat-window" id="chatWindow">
+            <!-- Messages will appear here -->
+            <div class="message ai-message">
+                <p>Assalamu Alaikum! I'm Mehwish AI, your Islamic digital assistant. How can I help you today?</p>
+                <div class="message-time">Today, <span id="current-time"></span></div>
+            </div>
+        </main>
+
+        <div class="chat-input-container">
+            <div class="chat-input">
+                <textarea id="messageInput" placeholder="Type your message here..." rows="1"></textarea>
+                <button id="sendButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <footer class="chat-footer">
+            <p>Powered by Groq LLaMA 3 70B | v5.0.1</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

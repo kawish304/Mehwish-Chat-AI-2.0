@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish Chat AI 2.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f7f7f7;
+        }
+        #chat-container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .user { color: blue; }
+        .assistant { color: green; }
+        input[type=text] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #endpoint-select {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <h2>Mehwish Chat AI 2.0</h2>
+    
+    <select id="endpoint-select">
+        <option value="groq">Groq</option>
+        <option value="deepseek">GPT-OSS</option>
+    </select>
+
+    <div id="messages"></div>
+
+    <input type="text" id="prompt" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    const messagesDiv = document.getElementById('messages');
+    const promptInput = document.getElementById('prompt');
+    const endpointSelect = document.getElementById('endpoint-select');
+
+    async function sendMessage() {
+        const prompt = promptInput.value.trim();
+        if (!prompt) return;
+
+        // Display user message
+        const userDiv = document.createElement('div');
+        userDiv.className = 'message user';
+        userDiv.textContent = `You: ${prompt}`;
+        messagesDiv.appendChild(userDiv);
+
+        promptInput.value = '';
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+        const endpoint = endpointSelect.value;
+
+        try {
+            const response = await fetch(`/api/${endpoint}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+            const data = await response.json();
+
+            let replyText = '';
+            if (endpoint === 'groq') {
+                replyText = data.choices?.[0]?.message?.content || JSON.stringify(data);
+            } else if (endpoint === 'deepseek') {
+                replyText = data.choices?.[0]?.message?.content || JSON.stringify(data);
+            }
+
+            const assistantDiv = document.createElement('div');
+            assistantDiv.className = 'message assistant';
+            assistantDiv.textContent = `Assistant: ${replyText}`;
+            messagesDiv.appendChild(assistantDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+        } catch (err) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'message assistant';
+            errorDiv.textContent = `Error: ${err.message}`;
+            messagesDiv.appendChild(errorDiv);
+        }
+    }
+</script>
+
+</body>
+</html>

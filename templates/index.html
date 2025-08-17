@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish Chat AI 2.0</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --error-color: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+        
+        .creator {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f8fafc;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            margin-left: auto;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ai-message {
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .input-group {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: var(--primary-color);
+        }
+        
+        button {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #4338ca;
+        }
+        
+        button:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .control-btn {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .secondary-btn {
+            background-color: var(--secondary-color);
+        }
+        
+        .secondary-btn:hover {
+            background-color: #0d9488;
+        }
+        
+        .video-preview {
+            width: 100%;
+            max-height: 200px;
+            background-color: black;
+            margin-top: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .video-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        select {
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background-color: white;
+            font-size: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .chat-container {
+                height: 80vh;
+            }
+            
+            .options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mehwish Chat AI 2.0</h1>
+            <p class="subtitle">Multi-Domain AI Assistant</p>
+            <p class="creator">Created by Syed Kawish Ali | kawish.alisas@gmail.com</p>
+        </header>
+        
+        <div class="options">
+            <select id="language-select">
+                <option value="roman_urdu">Roman Urdu</option>
+                <option value="en">English</option>
+                <option value="ur">Urdu</option>
+            </select>
+            
+            <select id="domain-select">
+                <option value="general">General</option>
+                <option value="islamic">Islamic</option>
+                <option value="coder">Coding</option>
+                <option value="banking">Banking</option>
+                <option value="science">Science</option>
+                <option value="math">Math</option>
+                <option value="cyber_security">Cyber Security</option>
+            </select>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>Mehwish Chat AI 2.0</h2>
+                <div id="recording-indicator" style="display: none;">
+                    <span style="color: #ef4444;">●</span> Recording
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="message ai-message">
+                    Assalamu Alaikum! السلام علیکم! میں Mehwish Chat AI 2.0 ہوں، آپ کی خدمت کے لیے حاضر ہوں۔ آپ کس بات کے بارے میں پوچھنا چاہتے ہیں؟
+                </div>
+            </div>
+            
+            <div class="video-preview" id="video-preview">
+                <img id="video-stream" src="">
+            </div>
+            
+            <div class="chat-input">
+                <div class="input-group">
+                    <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="control-btn secondary-btn" id="record-btn">Record Screen</button>
+                <button class="control-btn secondary-btn" id="pdf-btn">Save as PDF</button>
+            </div>
+        </div>
+        
+        <footer>
+            © 2025 Mehwish Chat AI 2.0 | Version 7.3 | Created by Syed Kawish Ali
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const recordBtn = document.getElementById('record-btn');
+            const pdfBtn = document.getElementById('pdf-btn');
+            const languageSelect = document.getElementById('language-select');
+            const domainSelect = document.getElementById('domain-select');
+            const videoPreview = document.getElementById('video-preview');
+            const videoStream = document.getElementById('video-stream');
+            const recordingIndicator = document.getElementById('recording-indicator');
+            
+            let sessionId = Date.now().toString();
+            let isRecording = false;
+            let eventSource = null;
+            
+            // Scroll to bottom of chat
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Add message to chat
+            function addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+                messageDiv.textContent = content;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+            
+            // Send message to API
+            async function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                userInput.value = '';
+                sendBtn.disabled = true;
+                
+                const language = languageSelect.value;
+                const domain = domainSelect.value;
+                const exportPdf = false; // PDF export handled separately
+                const recordVideo = isRecording;
+                
+                try {
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            language: language,
+                            domain: domain,
+                            export_pdf: exportPdf,
+                            record_video: recordVideo
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    
+                    const data = await response.json();
+                    addMessage(data.response);
+                    
+                    // Update session ID if new one was generated
+                    if (data.session_id) {
+                        sessionId = data.session_id;
+                    }
+                    
+                    // Handle video URL if recording was done
+                    if (data.video_url) {
+                        alert(`Video recording saved: ${data.video_url}`);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    addMessage("Sorry, there was an error processing your request. Please try again.");
+                } finally {
+                    sendBtn.disabled = false;
+                }
+            }
+            
+            // Toggle recording
+            async function toggleRecording() {
+                if (isRecording) {
+                    // Stop recording
+                    try {
+                        const response = await fetch('/api/video/control', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                action: 'stop',
+                                session_id: sessionId
+                            })
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Failed to stop recording');
+                        }
+                        
+                        const data = await response.json();
+                        if (data.video_url) {
+                            alert(`Recording saved: ${data.video_url}`);
+                        }
+                    } catch (error) {
+                        console.error('Error stopping recording:', error);
+                    }
+                    
+                    recordBtn.textContent = 'Record Screen';
+                    videoPreview.style.display = 'none';
+                    recordingIndicator.style.display = 'none';
+                    
+                    // Close the video stream
+                    if (eventSource) {
+                        eventSource.close();
+                        eventSource = null;
+                    }
+                } else {
+                    // Start recording
+                    try {
+                        const response = await fetch('/api/video/control', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                action: 'start',
+                                session_id: sessionId
+                            })
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Failed to start recording');
+                        }
+                        
+                        // Start video preview
+                        videoPreview.style.display = 'block';
+                        recordingIndicator.style.display = 'block';
+                        
+                        // For actual implementation, you would use WebRTC or similar
+                        // This is a simplified version using the /api/video/preview endpoint
+                        videoStream.src = '/api/video/preview';
+                        
+                    } catch (error) {
+                        console.error('Error starting recording:', error);
+                        return;
+                    }
+                    
+                    recordBtn.textContent = 'Stop Recording';
+                }
+                
+                isRecording = !isRecording;
+            }
+            
+            // Save chat as PDF
+            async function saveAsPdf() {
+                try {
+                    // Get the last AI message
+                    const messages = document.querySelectorAll('.ai-message');
+                    const lastMessage = messages[messages.length - 1];
+                    const content = lastMessage.textContent;
+                    
+                    const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: 'Generate PDF of previous response',
+                            language: languageSelect.value,
+                            domain: domainSelect.value,
+                            export_pdf: true
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    
+                    const data = await response.json();
+                    if (data.pdf_url) {
+                        // Open PDF in new tab
+                        window.open(data.pdf_url, '_blank');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to generate PDF');
+                }
+            }
+            
+            // Event listeners
+            sendBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            recordBtn.addEventListener('click', toggleRecording);
+            pdfBtn.addEventListener('click', saveAsPdf);
+            
+            // Initial scroll to bottom
+            scrollToBottom();
+        });
+    </script>
+</body>
+</html>
