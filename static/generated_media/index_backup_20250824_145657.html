@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish Chat AI 3.5 - Enhanced with Specialized AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --primary-yellow: #FFD700;
+            --dark-yellow: #FFC400;
+            --black: #1A1A1A;
+            --light-black: #2D2D2D;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: white;
+        }
+        
+        .bg-yellow {
+            background-color: var(--primary-yellow);
+        }
+        
+        .bg-dark {
+            background-color: var(--light-black);
+        }
+        
+        .text-yellow {
+            color: var(--primary-yellow);
+        }
+        
+        .border-yellow {
+            border-color: var(--primary-yellow);
+        }
+        
+        .chat-container {
+            height: 60vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        
+        .user-message {
+            background-color: var(--primary-yellow);
+            color: var(--black);
+            border-radius: 1rem 1rem 0 1rem;
+        }
+        
+        .ai-message {
+            background-color: var(--light-black);
+            color: white;
+            border: 1px solid var(--primary-yellow);
+            border-radius: 1rem 1rem 1rem 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            color: var(--black);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-yellow);
+        }
+        
+        .conversation-history {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .typing-indicator {
+            display: none;
+        }
+        
+        .typing-indicator.active {
+            display: flex;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-yellow);
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: bounce 1.3s infinite ease-in-out;
+        }
+        
+        .dot:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        
+        .dot:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .code-block {
+            background-color: #2D3748;
+            border-left: 4px solid var(--primary-yellow);
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 0.25rem;
+        }
+        
+        .media-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 0.5rem;
+            border: 2px solid var(--primary-yellow);
+        }
+        
+        .placeholder-media {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--black) 25%, var(--light-black) 25%, var(--light-black) 50%, var(--black) 50%, var(--black) 75%, var(--light-black) 75%, var(--light-black) 100%);
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+            border: 2px dashed var(--primary-yellow);
+            border-radius: 0.5rem;
+        }
+        
+        .api-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .api-status.online {
+            background-color: #10B981;
+            color: white;
+        }
+        
+        .api-status.offline {
+            background-color: #EF4444;
+            color: white;
+        }
+        
+        .api-status.checking {
+            background-color: #6B7280;
+            color: white;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .screenshot-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-yellow);
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .screenshot-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .recording-indicator {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: #EF4444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .recording-indicator.active {
+            display: flex;
+            align-items: center;
+        }
+        
+        .recording-pulse {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+            }
+            
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+            }
+        }
+        
+        .ai-mode-selector {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-mode {
+            flex: 0 0 auto;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background-color: var(--light-black);
+            border: 1px solid var(--primary-yellow);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .ai-mode.active {
+            background-color: var(--primary-yellow);
+            color: var(--black);
+        }
+        
+        .ai-mode:hover {
+            background-color: var(--dark-yellow);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+    <!-- Header -->
+    <header class="bg-yellow text-black py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-robot text-3xl mr-3"></i>
+                <h1 class="text-2xl font-bold">Mehwish Chat AI 3.5</h1>
+            </div>
+            <div class="text-sm">
+                <span class="bg-black text-yellow px-3 py-1 rounded-full">World's Best AI Assistant</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Screenshot Button -->
+    <div class="screenshot-btn" id="screenshotBtn">
+        <i class="fas fa-camera"></i>
+    </div>
+
+    <!-- Recording Indicator -->
+    <div class="recording-indicator" id="recordingIndicator">
+        <div class="recording-pulse"></div>
+        Recording
+    </div>
+
+    <!-- API Status Banner -->
+    <div class="bg-green-800 text-white py-2 px-4 text-center" id="apiStatusBanner">
+        <div class="container mx-auto">
+            <p class="font-medium">✅ All API Keys Successfully Loaded! GROQ and Pixels APIs are ready to use.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap border-b border-yellow mb-6">
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-yellow" data-tab="chat">
+                <i class="fas fa-comments mr-2"></i>Chat
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="code">
+                <i class="fas fa-code mr-2"></i>Code Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="media">
+                <i class="fas fa-image mr-2"></i>Media Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="screen">
+                <i class="fas fa-video mr-2"></i>Screen Recording
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="seo">
+                <i class="fas fa-search mr-2"></i>SEO Tools
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="pdf">
+                <i class="fas fa-file-pdf mr-2"></i>PDF Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="about">
+                <i class="fas fa-info-circle mr-2"></i>About
+            </button>
+        </div>
+
+        <!-- Chat Tab -->
+        <div id="chat" class="tab-content active">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Chat with Mehwish AI</h2>
+                
+                <!-- AI Mode Selector -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">AI Mode</label>
+                    <div class="ai-mode-selector">
+                        <div class="ai-mode active" data-mode="general">General AI</div>
+                        <div class="ai-mode" data-mode="doctor">Doctor AI</div>
+                        <div class="ai-mode" data-mode="islamic">Islamic AI</div>
+                        <div class="ai-mode" data-mode="coder">Coder AI</div>
+                        <div class="ai-mode" data-mode="banking">Banking AI</div>
+                        <div class="ai-mode" data-mode="economy">Economy AI</div>
+                    </div>
+                </div>
+                
+                <!-- Language and Subject Selection -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Language</label>
+                        <select id="language" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="english">English</option>
+                            <option value="urdu">Urdu</option>
+                            <option value="roman_urdu" selected>Roman Urdu</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="french">French</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="german">German</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="punjabi">Punjabi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Subject</label>
+                        <select id="subject" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="general">General</option>
+                            <option value="programming">Programming</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="c">C Language</option>
+                            <option value="cpp">C++ Language</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="banking">Banking</option>
+                            <option value="economy">Economy</option>
+                            <option value="science">Science</option>
+                            <option value="math">Math</option>
+                            <option value="physics">Physics</option>
+                            <option value="islamic">Islamic Studies</option>
+                            <option value="seo">SEO</option>
+                            <option value="game">Game Development</option>
+                            <option value="cartoon">Cartoon & Animation</option>
+                            <option value="ebay">eBay Selling</option>
+                            <option value="freelancing">Freelancing</option>
+                            <option value="guestposting">Guest Posting</option>
+                            <option value="health">Health & Medicine</option>
+                            <option value="history">History</option>
+                            <option value="geography">Geography</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Media Options -->
+                <div class="flex items-center space-x-4 mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="generateImage" class="form-checkbox text-yellow">
+                        <span class="ml-2">Generate Image</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" id="generateVideo" class="form-checkbox text-yellow">
+                        <span class="ml-2">Generate Video</span>
+                    </label>
+                </div>
+                
+                <!-- Chat Interface -->
+                <div class="chat-container mb-4 p-4 bg-black rounded-lg" id="chatMessages">
+                    <div class="ai-message p-4 mb-4">
+                        <div class="flex items-start">
+                            <div class="bg-yellow text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Mehwish AI</p>
+                                <p>Hello! I'm Mehwish Chat AI 3.5, the world's best AI assistant. How can I help you today?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Typing Indicator -->
+                <div class="typing-indicator mb-4 p-3 bg-black rounded-lg hidden" id="typingIndicator">
+                    <div class="flex items-center">
+                        <div class="bg-yellow text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="flex">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Input Area -->
+                <div class="flex">
+                    <input type="text" id="messageInput" placeholder="Type your message here..." class="flex-grow bg-black border border-yellow rounded-l-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                    <button id="sendMessage" class="btn-primary rounded-r-md px-6 py-3 font-medium">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                
+                <!-- Conversation History -->
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Conversation History</h3>
+                    <div class="conversation-history bg-black p-3 rounded-md" id="conversationHistory">
+                        <p class="text-gray-400 text-sm">No previous conversations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Generation Tab -->
+        <div id="code" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Code Generation</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Programming Language</label>
+                        <select id="codeLanguage" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="c">C Language</option>
+                            <option value="cpp">C++ Language</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="php">PHP</option>
+                            <option value="sql">SQL</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Code Purpose</label>
+                        <select id="codePurpose" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="snippet">Code Snippet</option>
+                            <option value="component">Component</option>
+                            <option value="full_page">Full Page</option>
+                            <option value="algorithm">Algorithm</option>
+                            <option value="game">Game</option>
+                            <option value="cartoon">Cartoon</option>
+                            <option value="web_app">Web Application</option>
+                            <option value="mobile_app">Mobile Application</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Explanation Style</label>
+                        <select id="codeStyle" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="default">Default</option>
+                            <option value="roman_urdu">Roman Urdu</option>
+                            <option value="detailed">Detailed</option>
+                            <option value="simple">Simple</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Skill Level</label>
+                        <select id="codeLevel" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Code Prompt</label>
+                    <textarea id="codePrompt" rows="4" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Describe what you want to code..."></textarea>
+                </div>
+                
+                <button id="generateCode" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-code mr-2"></i>Generate Code
+                </button>
+                
+                <div class="bg-black p-4 rounded-md">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Generated Code</h3>
+                    <pre class="code-block text-sm" id="generatedCode">
+                        <code class="text-white">// Your generated code will appear here</code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Generation Tab -->
+        <div id="media" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Media Generation with Pixels API</h2>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Media Type</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="mediaType" value="image" checked class="form-radio text-yellow">
+                            <span class="ml-2">Image</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="mediaType" value="video" class="form-radio text-yellow">
+                            <span class="ml-2">Video</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Media Prompt</label>
+                    <textarea id="mediaPrompt" rows="3" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Describe the image or video you want to generate..."></textarea>
+                </div>
+                
+                <button id="generateMedia" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-camera mr-2"></i>Generate Media
+                </button>
+                
+                <div class="bg-black p-4 rounded-md text-center">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Generated Media</h3>
+                    <div id="mediaResult" class="flex justify-center items-center min-h-64">
+                        <div class="placeholder-media">
+                            <div class="text-center">
+                                <i class="fas fa-image text-3xl mb-2"></i>
+                                <p>Your generated media will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen Recording Tab -->
+        <div id="screen" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Screen Recording & Screenshot</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- Screenshot Section -->
+                    <div class="bg-black p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-yellow mb-4">Screenshot</h3>
+                        <p class="text-sm text-gray-300 mb-4">Capture the current screen or application window</p>
+                        <div class="flex space-x-2">
+                            <button id="captureScreen" class="btn-primary flex-1 py-2 rounded-md">
+                                <i class="fas fa-camera mr-2"></i>Capture Screen
+                            </button>
+                            <button id="captureWindow" class="btn-primary flex-1 py-2 rounded-md">
+                                <i class="fas fa-window-maximize mr-2"></i>Capture Window
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Recording Section -->
+                    <div class="bg-black p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-yellow mb-4">Screen Recording</h3>
+                        <p class="text-sm text-gray-300 mb-4">Record your screen with audio</p>
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="recordAudio" class="form-checkbox text-yellow mr-2" checked>
+                            <label for="recordAudio">Include Audio</label>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button id="startRecording" class="btn-primary flex-1 py-2 rounded-md">
+                                <i class="fas fa-record-vinyl mr-2"></i>Start Recording
+                            </button>
+                            <button id="stopRecording" class="btn-primary flex-1 py-2 rounded-md" disabled>
+                                <i class="fas fa-stop mr-2"></i>Stop Recording
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preview Section -->
+                <div class="bg-black p-4 rounded-lg">
+                    <h3 class="text-lg font-medium text-yellow mb-4">Preview</h3>
+                    <div id="previewArea" class="min-h-64 flex items-center justify-center border border-dashed border-yellow rounded-md">
+                        <p class="text-gray-400">Your screenshot or recording will appear here</p>
+                    </div>
+                    
+                    <div id="actionButtons" class="mt-4 flex space-x-2 hidden">
+                        <button id="downloadBtn" class="btn-primary flex-1 py-2 rounded-md">
+                            <i class="fas fa-download mr-2"></i>Download
+                        </button>
+                        <button id="shareBtn" class="btn-primary flex-1 py-2 rounded-md">
+                            <i class="fas fa-share-alt mr-2"></i>Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other tabs remain the same -->
+        <!-- SEO Tools Tab -->
+        <div id="seo" class="tab-content">
+            <!-- SEO content remains the same -->
+        </div>
+
+        <!-- PDF Generation Tab -->
+        <div id="pdf" class="tab-content">
+            <!-- PDF content remains the same -->
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <!-- About content remains the same -->
+        </div>
+    </main>
+
+    <footer class="bg-yellow text-black py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Mehwish Chat AI 3.5. Created by Syed Kawish Ali.</p>
+            <p class="text-sm mt-2">The World's Best AI Assistant</p>
+        </div>
+    </footer>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'http://localhost:8000';
+        
+        // DOM Elements
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const conversationHistory = document.getElementById('conversationHistory');
+        const screenshotBtn = document.getElementById('screenshotBtn');
+        const recordingIndicator = document.getElementById('recordingIndicator');
+        const aiModes = document.querySelectorAll('.ai-mode');
+        
+        // Screen recording variables
+        let mediaRecorder;
+        let recordedChunks = [];
+        let stream = null;
+        
+        // State
+        let currentConversationId = null;
+        let currentAIMode = 'general';
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up tab navigation
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    activateTab(tabId);
+                });
+            });
+            
+            // Set up AI mode selection
+            aiModes.forEach(mode => {
+                mode.addEventListener('click', () => {
+                    aiModes.forEach(m => m.classList.remove('active'));
+                    mode.classList.add('active');
+                    currentAIMode = mode.getAttribute('data-mode');
+                });
+            });
+            
+            // Set up message sending
+            sendMessageBtn.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Set up code generation
+            document.getElementById('generateCode').addEventListener('click', generateCode);
+            
+            // Set up media generation
+            document.getElementById('generateMedia').addEventListener('click', generateMedia);
+            
+            // Set up SEO tools
+            document.getElementById('generateSeo').addEventListener('click', generateSeoKeywords);
+            document.getElementById('generateGuestPost').addEventListener('click', generateGuestPosting);
+            document.getElementById('generateEbayGuide').addEventListener('click', generateEbayGuide);
+            
+            // Set up PDF generation
+            document.getElementById('generatePdf').addEventListener('click', generatePdf);
+            
+            // Set up health check
+            document.getElementById('healthCheck').addEventListener('click', checkApiHealth);
+            
+            // Set up screen recording and screenshot
+            setupScreenCapture();
+            
+            // Check API health on load
+            checkApiHealth();
+        });
+        
+        // Setup screen capture functionality
+        function setupScreenCapture() {
+            // Screenshot button
+            screenshotBtn.addEventListener('click', takeScreenshot);
+            
+            // Screen recording buttons
+            document.getElementById('captureScreen').addEventListener('click', () => takeScreenshot('screen'));
+            document.getElementById('captureWindow').addEventListener('click', () => takeScreenshot('window'));
+            document.getElementById('startRecording').addEventListener('click', startRecording);
+            document.getElementById('stopRecording').addEventListener('click', stopRecording);
+            document.getElementById('downloadBtn').addEventListener('click', downloadMedia);
+            document.getElementById('shareBtn').addEventListener('click', shareMedia);
+        }
+        
+        // Take screenshot function
+        async function takeScreenshot(type = 'full') {
+            try {
+                // Different methods based on the type
+                if (type === 'full') {
+                    // Use html2canvas for full page screenshot
+                    try {
+                        const canvas = await html2canvas(document.body);
+                        const screenshot = canvas.toDataURL('image/png');
+                        displayScreenshot(screenshot);
+                    } catch (error) {
+                        console.error('Error taking screenshot:', error);
+                        alert('Failed to take screenshot. Please try again.');
+                    }
+                } else {
+                    // Use the browser's built-in API for screen/window capture
+                    const captureStream = await navigator.mediaDevices.getDisplayMedia({
+                        video: true,
+                        audio: false
+                    });
+                    
+                    const video = document.createElement('video');
+                    video.srcObject = captureStream;
+                    video.onloadedmetadata = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        
+                        // Stop all tracks
+                        captureStream.getTracks().forEach(track => track.stop());
+                        
+                        const screenshot = canvas.toDataURL('image/png');
+                        displayScreenshot(screenshot);
+                    };
+                    video.play();
+                }
+            } catch (error) {
+                console.error('Error taking screenshot:', error);
+                alert('Failed to take screenshot. Please try again.');
+            }
+        }
+        
+        // Display screenshot in preview area
+        function displayScreenshot(screenshotDataUrl) {
+            const previewArea = document.getElementById('previewArea');
+            previewArea.innerHTML = `
+                <img src="${screenshotDataUrl}" alt="Screenshot" class="max-w-full max-h-64">
+            `;
+            
+            // Show action buttons
+            const actionButtons = document.getElementById('actionButtons');
+            actionButtons.classList.remove('hidden');
+            
+            // Store the data URL for download/share
+            previewArea.dataset.media = screenshotDataUrl;
+            previewArea.dataset.type = 'image';
+        }
+        
+        // Start screen recording
+        async function startRecording() {
+            try {
+                recordedChunks = [];
+                const recordAudio = document.getElementById('recordAudio').checked;
+                
+                // Get display media stream
+                const displayStream = await navigator.mediaDevices.getDisplayMedia({
+                    video: true,
+                    audio: recordAudio
+                });
+                
+                // Get audio stream if needed
+                let audioStream = null;
+                if (recordAudio) {
+                    try {
+                        audioStream = await navigator.mediaDevices.getUserMedia({
+                            audio: true,
+                            video: false
+                        });
+                    } catch (err) {
+                        console.log('Unable to record audio:', err);
+                    }
+                }
+                
+                // Combine streams if audio is enabled
+                if (recordAudio && audioStream) {
+                    const audioTrack = audioStream.getAudioTracks()[0];
+                    displayStream.addTrack(audioTrack);
+                }
+                
+                stream = displayStream;
+                
+                // Create media recorder
+                mediaRecorder = new MediaRecorder(stream, {
+                    mimeType: 'video/webm; codecs=vp9,opus'
+                });
+                
+                // Event handlers
+                mediaRecorder.ondataavailable = function(event) {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
+                
+                mediaRecorder.onstop = function() {
+                    const blob = new Blob(recordedChunks, {
+                        type: 'video/webm'
+                    });
+                    const videoURL = URL.createObjectURL(blob);
+                    displayRecording(videoURL);
+                    
+                    // Stop all tracks
+                    stream.getTracks().forEach(track => track.stop());
+                };
+                
+                // Start recording
+                mediaRecorder.start(1000); // Capture data every second
+                
+                // Update UI
+                document.getElementById('startRecording').disabled = true;
+                document.getElementById('stopRecording').disabled = false;
+                recordingIndicator.classList.add('active');
+                
+            } catch (error) {
+                console.error('Error starting recording:', error);
+                alert('Failed to start recording. Please try again.');
+            }
+        }
+        
+        // Stop screen recording
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.stop();
+                
+                // Update UI
+                document.getElementById('startRecording').disabled = false;
+                document.getElementById('stopRecording').disabled = true;
+                recordingIndicator.classList.remove('active');
+            }
+        }
+        
+        // Display recording in preview area
+        function displayRecording(videoURL) {
+            const previewArea = document.getElementById('previewArea');
+            previewArea.innerHTML = `
+                <video controls class="max-w-full max-h-64">
+                    <source src="${videoURL}" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+            
+            // Show action buttons
+            const actionButtons = document.getElementById('actionButtons');
+            actionButtons.classList.remove('hidden');
+            
+            // Store the video URL for download/share
+            previewArea.dataset.media = videoURL;
+            previewArea.dataset.type = 'video';
+        }
+        
+        // Download media
+        function downloadMedia() {
+            const previewArea = document.getElementById('previewArea');
+            const mediaURL = previewArea.dataset.media;
+            const mediaType = previewArea.dataset.type;
+            
+            if (!mediaURL) return;
+            
+            const a = document.createElement('a');
+            a.href = mediaURL;
+            a.download = `mehwish-ai-${mediaType}-${Date.now()}.${mediaType === 'image' ? 'png' : 'webm'}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        
+        // Share media
+        async function shareMedia() {
+            const previewArea = document.getElementById('previewArea');
+            const mediaURL = previewArea.dataset.media;
+            const mediaType = previewArea.dataset.type;
+            
+            if (!mediaURL || !navigator.share) {
+                alert('Sharing is not supported in your browser');
+                return;
+            }
+            
+            try {
+                // Convert data URL to blob if it's a screenshot
+                if (mediaType === 'image') {
+                    const response = await fetch(mediaURL);
+                    const blob = await response.blob();
+                    const file = new File([blob], `screenshot-${Date.now()}.png`, { type: 'image/png' });
+                    
+                    await navigator.share({
+                        files: [file],
+                        title: 'Mehwish AI Screenshot',
+                        text: 'Check out this screenshot from Mehwish AI'
+                    });
+                } else {
+                    // For video, we need to convert the blob URL to a file
+                    const response = await fetch(mediaURL);
+                    const blob = await response.blob();
+                    const file = new File([blob], `recording-${Date.now()}.webm`, { type: 'video/webm' });
+                    
+                    await navigator.share({
+                        files: [file],
+                        title: 'Mehwish AI Screen Recording',
+                        text: 'Check out this screen recording from Mehwish AI'
+                    });
+                }
+            } catch (error) {
+                console.error('Error sharing media:', error);
+                alert('Failed to share media. Please try again.');
+            }
+        }
+        
+        // Tab activation function
+        function activateTab(tabId) {
+            // Deactivate all tabs
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            tabButtons.forEach(button => {
+                button.classList.remove('border-yellow');
+                button.classList.add('border-transparent');
+            });
+            
+            // Activate the selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab buttons
+            const activeButton = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            activeButton.classList.remove('border-transparent');
+            activeButton.classList.add('border-yellow');
+        }
+        
+        // Send message function
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            const language = document.getElementById('language').value;
+            const subject = document.getElementById('subject').value;
+            const generateImage = document.getElementById('generateImage').checked;
+            const generateVideo = document.getElementById('generateVideo').checked;
+            
+            // Add user message to chat
+            addMessageToChat('user', message);
+            messageInput.value = '';
+            
+            // Show typing indicator
+            typingIndicator.classList.add('active');
+            
+            // Prepare request data
+            const requestData = {
+                message: message,
+                language: language,
+                subject: subject,
+                image: generateImage,
+                video: generateVideo,
+                ai_mode: currentAIMode
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post(`${API_BASE_URL}/api/chat`, requestData)
+                .then(response => {
+                    const data = response.data;
+                    currentConversationId = data.conversation_id;
+                    
+                    // Add AI response to chat
+                    addMessageToChat('assistant', data.response);
+                    
+                    // Update conversation history
+                    updateConversationHistory();
+                    
+                    // Hide typing indicator
+                    typingIndicator.classList.remove('active');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    addMessageToChat('assistant', 'Sorry, there was an error processing your request. Please try again.');
+                    typingIndicator.classList.remove('active');
+                });
+        }
+        
+        // Add message to chat UI
+        function addMessageToChat(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = role === 'user' ? 'user-message p-4 mb-4' : 'ai-message p-4 mb-4';
+            
+            const messageContent = `
+                <div class="flex items-start">
+                    <div class="${role === 'user' ? 'bg-black text-yellow' : 'bg-yellow text-black'} rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <i class="fas ${role === 'user' ? 'fa-user' : 'fa-robot'}"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">${role === 'user' ? 'You' : 'Mehwish AI'}</p>
+                        <p>${formatMessageContent(content)}</p>
+                    </div>
+                </div>
+            `;
+            
+            messageDiv.innerHTML = messageContent;
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Format message content (handle code blocks, etc.)
+        function formatMessageContent(content) {
+            // Replace code blocks with formatted version
+            content = content.replace(/```([\s\S]*?)```/g, '<div class="code-block my-2"><code>$1</code></div>');
+            
+            // Replace line breaks
+            content = content.replace(/\n/g, '<br>');
+            
+            return content;
+        }
+        
+        // Update conversation history UI
+        function updateConversationHistory() {
+            if (!currentConversationId) return;
+            
+            conversationHistory.innerHTML = `
+                <p class="text-yellow">Current conversation: ${currentConversationId}</p>
+                <button class="text-sm text-yellow underline mt-2" onclick="exportConversation('${currentConversationId}')">Export this conversation</button>
+            `;
+        }
+        
+        // Export conversation function
+        function exportConversation(conversationId) {
+            window.open(`${API_BASE_URL}/api/export-conversation/${conversationId}`, '_blank');
+        }
+        
+        // Generate code function
+        function generateCode() {
+            const prompt = document.getElementById('codePrompt').value.trim();
+            if (!prompt) return;
+            
+            const language = document.getElementById('codeLanguage').value;
+            const style = document.getElementById('codeStyle').value;
+            const purpose = document.getElementById('codePurpose').value;
+            const level = document.getElementById('codeLevel').value;
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generateCode');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                prompt: prompt,
+                language: language,
+                style: style,
+                purpose: purpose,
+                level: level
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post(`${API_BASE_URL}/api/code`, requestData)
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated code
+                    const codeElement = document.getElementById('generatedCode');
+                    codeElement.innerHTML = `<code class="text-white">${data.raw_response || data.message}</code>`;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-code mr-2"></i>Generate Code';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating code. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-code mr-2"></i>Generate Code';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate media function
+        function generateMedia() {
+            const prompt = document.getElementById('mediaPrompt').value.trim();
+            if (!prompt) return;
+            
+            const mediaType = document.querySelector('input[name="mediaType"]:checked').value;
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generateMedia');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                prompt: prompt,
+                kind: mediaType
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post(`${API_BASE_URL}/api/media/pixel`, requestData)
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated media
+                    const mediaResult = document.getElementById('mediaResult');
+                    if (mediaType === 'image') {
+                        mediaResult.innerHTML = `<img src="${data.url}" alt="Generated image" class="media-preview">`;
+                    } else {
+                        // For video, check if it's a placeholder
+                        if (data.url.includes('placeholder')) {
+                            mediaResult.innerHTML = `
+                                <div class="placeholder-media">
+                                    <div class="text-center">
+                                        <i class="fas fa-video text-3xl mb-2"></i>
+                                        <p>Video placeholder - set PIXELS_API_KEY for real videos</p>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            mediaResult.innerHTML = `
+                                <video controls class="media-preview">
+                                    <source src="${data.url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            `;
+                        }
+                    }
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-camera mr-2"></i>Generate Media';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating media. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-camera mr-2"></i>Generate Media';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Check API health function
+        function checkApiHealth() {
+            const apiStatus = document.getElementById('apiStatus');
+            const groqStatus = document.getElementById('groqStatus');
+            const pixelsStatus = document.getElementById('pixelsStatus');
+            
+            apiStatus.textContent = 'Checking...';
+            apiStatus.className = 'api-status checking';
+            groqStatus.textContent = 'Checking...';
+            groqStatus.className = 'api-status checking';
+            pixelsStatus.textContent = 'Checking...';
+            pixelsStatus.className = 'api-status checking';
+            
+            // First check the main health endpoint
+            axios.get(`${API_BASE_URL}/health`)
+                .then(response => {
+                    apiStatus.textContent = 'Online';
+                    apiStatus.className = 'api-status online';
+                    
+                    // Now check the API keys status
+                    return axios.get(`${API_BASE_URL}/api/check-keys`);
+                })
+                .then(response => {
+                    const data = response.data;
+                    
+                    if (data.groq_loaded) {
+                        groqStatus.textContent = `Loaded (${data.groq_length} chars)`;
+                        groqStatus.className = 'api-status online';
+                    } else {
+                        groqStatus.textContent = 'Not Loaded';
+                        groqStatus.className = 'api-status offline';
+                    }
+                    
+                    if (data.pixels_loaded) {
+                        pixelsStatus.textContent = `Loaded (${data.pixels_length} chars)`;
+                        pixelsStatus.className = 'api-status online';
+                    } else {
+                        pixelsStatus.textContent = 'Not Loaded';
+                        pixelsStatus.className = 'api-status offline';
+                    }
+                })
+                .catch(error => {
+                    console.error('API health check failed:', error);
+                    apiStatus.textContent = 'Offline';
+                    apiStatus.className = 'api-status offline';
+                    groqStatus.textContent = 'Error';
+                    groqStatus.className = 'api-status offline';
+                    pixelsStatus.textContent = 'Error';
+                    pixelsStatus.className = 'api-status offline';
+                });
+        }
+    </script>
+</body>
+</html>

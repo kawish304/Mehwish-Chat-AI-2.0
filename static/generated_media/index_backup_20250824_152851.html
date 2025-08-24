@@ -487,28 +487,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        
-        .symptom-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        
-        .symptom-tag {
-            background: var(--secondary);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .symptom-tag .remove {
-            cursor: pointer;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -565,14 +543,6 @@
                         <i class="fas fa-magic"></i>
                         <span>Automation</span>
                     </button>
-                    <button class="feature-btn" data-feature="guest-posting">
-                        <i class="fas fa-blog"></i>
-                        <span>Guest Posting</span>
-                    </button>
-                    <button class="feature-btn" data-feature="ebay">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>eBay & Freelancing</span>
-                    </button>
                 </div>
             </div>
             
@@ -589,10 +559,6 @@
                                 <option value="arabic">Arabic</option>
                                 <option value="french">French</option>
                                 <option value="spanish">Spanish</option>
-                                <option value="german">German</option>
-                                <option value="chinese">Chinese</option>
-                                <option value="japanese">Japanese</option>
-                                <option value="russian">Russian</option>
                             </select>
                             <select id="subject-select">
                                 <option value="general">General</option>
@@ -601,17 +567,6 @@
                                 <option value="medical">Medical</option>
                                 <option value="seo">SEO</option>
                                 <option value="islamic">Islamic</option>
-                                <option value="economics">Economics</option>
-                                <option value="civilization">Civilization</option>
-                                <option value="science">Science</option>
-                                <option value="math">Math</option>
-                                <option value="physics">Physics</option>
-                                <option value="game">Game Development</option>
-                                <option value="animation">Animation</option>
-                                <option value="ai">Artificial Intelligence</option>
-                                <option value="automation">Automation</option>
-                                <option value="ebay">eBay & Freelancing</option>
-                                <option value="guestposting">Guest Posting</option>
                             </select>
                         </div>
                     </div>
@@ -729,167 +684,6 @@
                         <i class="fas fa-download"></i> Generate PDF
                     </button>
                 </div>
-                
-                <!-- Banking Form -->
-                <div class="feature-form hidden" id="banking-form">
-                    <div class="form-header">
-                        <h3>Banking & ATM Services</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="banking-action">Action</label>
-                            <select id="banking-action">
-                                <option value="balance">Check Balance</option>
-                                <option value="withdraw">Withdraw</option>
-                                <option value="deposit">Deposit</option>
-                                <option value="statement">Get Statement</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="account-number">Account Number</label>
-                            <input type="text" id="account-number" placeholder="Enter account number">
-                        </div>
-                        <div class="form-group">
-                            <label for="account-pin">PIN</label>
-                            <input type="password" id="account-pin" placeholder="Enter PIN">
-                        </div>
-                        <div class="form-group" id="amount-group">
-                            <label for="transaction-amount">Amount (PKR)</label>
-                            <input type="number" id="transaction-amount" placeholder="Enter amount">
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="execute-banking">
-                        <i class="fas fa-university"></i> Execute
-                    </button>
-                </div>
-                
-                <!-- Medical Advice Form -->
-                <div class="feature-form hidden" id="medical-form">
-                    <div class="form-header">
-                        <h3>Medical Advice</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="symptom-input">Enter Symptoms</label>
-                            <div style="display: flex; gap: 10px;">
-                                <input type="text" id="symptom-input" placeholder="Enter a symptom">
-                                <button class="send-btn" id="add-symptom" style="padding: 0 15px;">Add</button>
-                            </div>
-                            <div class="symptom-tags" id="symptom-tags">
-                                <!-- Symptoms will be added here -->
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="patient-age">Age</label>
-                            <input type="number" id="patient-age" placeholder="Enter age">
-                        </div>
-                        <div class="form-group">
-                            <label for="patient-gender">Gender</label>
-                            <select id="patient-gender">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="get-medical-advice">
-                        <i class="fas fa-heartbeat"></i> Get Medical Advice
-                    </button>
-                </div>
-                
-                <!-- SEO Keywords Form -->
-                <div class="feature-form hidden" id="seo-form">
-                    <div class="form-header">
-                        <h3>SEO Keywords Generator</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="seo-text">Content</label>
-                            <textarea id="seo-text" placeholder="Enter your content for SEO analysis..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="seo-max-keywords">Max Keywords</label>
-                            <input type="number" id="seo-max-keywords" value="10" min="1" max="50">
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="generate-seo">
-                        <i class="fas fa-search"></i> Generate SEO Keywords
-                    </button>
-                </div>
-                
-                <!-- Automation Form -->
-                <div class="feature-form hidden" id="automation-form">
-                    <div class="form-header">
-                        <h3>Automation Script Generator</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="automation-task">Task Description</label>
-                            <textarea id="automation-task" placeholder="Describe the task you want to automate..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="automation-platform">Platform</label>
-                            <select id="automation-platform">
-                                <option value="web">Web</option>
-                                <option value="desktop">Desktop</option>
-                                <option value="mobile">Mobile</option>
-                                <option value="api">API</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="generate-automation">
-                        <i class="fas fa-magic"></i> Generate Automation Script
-                    </button>
-                </div>
-                
-                <!-- Guest Posting Form -->
-                <div class="feature-form hidden" id="guest-posting-form">
-                    <div class="form-header">
-                        <h3>Guest Posting Ideas</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="guest-topic">Topic</label>
-                            <input type="text" id="guest-topic" placeholder="Enter your topic">
-                        </div>
-                        <div class="form-group">
-                            <label for="guest-audience">Target Audience</label>
-                            <select id="guest-audience">
-                                <option value="general">General</option>
-                                <option value="beginners">Beginners</option>
-                                <option value="experts">Experts</option>
-                                <option value="business">Business</option>
-                                <option value="students">Students</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="generate-guest-posting">
-                        <i class="fas fa-blog"></i> Generate Ideas
-                    </button>
-                </div>
-                
-                <!-- eBay & Freelancing Form -->
-                <div class="feature-form hidden" id="ebay-form">
-                    <div class="form-header">
-                        <h3>eBay & Freelancing Guide</h3>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="ebay-product">Product Type</label>
-                            <input type="text" id="ebay-product" placeholder="Enter product type">
-                        </div>
-                        <div class="form-group">
-                            <label for="ebay-budget">Budget</label>
-                            <select id="ebay-budget">
-                                <option value="low">Low</option>
-                                <option value="medium" selected>Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="submit-btn" id="generate-ebay-guide">
-                        <i class="fas fa-shopping-cart"></i> Generate Guide
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -902,13 +696,6 @@
             const codeForm = document.getElementById('code-form');
             const mediaForm = document.getElementById('media-form');
             const pdfForm = document.getElementById('pdf-form');
-            const bankingForm = document.getElementById('banking-form');
-            const medicalForm = document.getElementById('medical-form');
-            const seoForm = document.getElementById('seo-form');
-            const automationForm = document.getElementById('automation-form');
-            const guestPostingForm = document.getElementById('guest-posting-form');
-            const ebayForm = document.getElementById('ebay-form');
-            
             const messageInput = document.getElementById('message-input');
             const sendButton = document.getElementById('send-button');
             const chatMessages = document.getElementById('chat-messages');
@@ -916,17 +703,11 @@
             const subjectSelect = document.getElementById('subject-select');
             const mediaResult = document.getElementById('media-result');
             const mediaOptionButtons = document.querySelectorAll('.media-option-btn');
-            const amountGroup = document.getElementById('amount-group');
-            const bankingAction = document.getElementById('banking-action');
-            const symptomTags = document.getElementById('symptom-tags');
-            const symptomInput = document.getElementById('symptom-input');
-            const addSymptomBtn = document.getElementById('add-symptom');
             
             // Current state
             let currentFeature = 'chat';
             let conversationId = null;
             let mediaType = 'image'; // Default media type
-            let symptoms = [];
             
             // Feature switching
             featureButtons.forEach(button => {
@@ -942,12 +723,6 @@
                     codeForm.classList.add('hidden');
                     mediaForm.classList.add('hidden');
                     pdfForm.classList.add('hidden');
-                    bankingForm.classList.add('hidden');
-                    medicalForm.classList.add('hidden');
-                    seoForm.classList.add('hidden');
-                    automationForm.classList.add('hidden');
-                    guestPostingForm.classList.add('hidden');
-                    ebayForm.classList.add('hidden');
                     
                     // Show selected form
                     currentFeature = feature;
@@ -959,18 +734,6 @@
                         mediaForm.classList.remove('hidden');
                     } else if (feature === 'pdf') {
                         pdfForm.classList.remove('hidden');
-                    } else if (feature === 'banking') {
-                        bankingForm.classList.remove('hidden');
-                    } else if (feature === 'medical') {
-                        medicalForm.classList.remove('hidden');
-                    } else if (feature === 'seo') {
-                        seoForm.classList.remove('hidden');
-                    } else if (feature === 'automation') {
-                        automationForm.classList.remove('hidden');
-                    } else if (feature === 'guest-posting') {
-                        guestPostingForm.classList.remove('hidden');
-                    } else if (feature === 'ebay') {
-                        ebayForm.classList.remove('hidden');
                     }
                 });
             });
@@ -983,50 +746,6 @@
                     mediaType = this.getAttribute('data-type');
                 });
             });
-            
-            // Banking action change
-            bankingAction.addEventListener('change', function() {
-                if (this.value === 'balance' || this.value === 'statement') {
-                    amountGroup.style.display = 'none';
-                } else {
-                    amountGroup.style.display = 'flex';
-                }
-            });
-            
-            // Add symptom
-            addSymptomBtn.addEventListener('click', function() {
-                const symptom = symptomInput.value.trim();
-                if (symptom && !symptoms.includes(symptom)) {
-                    symptoms.push(symptom);
-                    updateSymptomTags();
-                    symptomInput.value = '';
-                }
-            });
-            
-            symptomInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    addSymptomBtn.click();
-                }
-            });
-            
-            function updateSymptomTags() {
-                symptomTags.innerHTML = '';
-                symptoms.forEach(symptom => {
-                    const tag = document.createElement('div');
-                    tag.className = 'symptom-tag';
-                    tag.innerHTML = `${symptom} <span class="remove" data-symptom="${symptom}">×</span>`;
-                    symptomTags.appendChild(tag);
-                });
-                
-                // Add event listeners to remove buttons
-                document.querySelectorAll('.symptom-tag .remove').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const symptomToRemove = this.getAttribute('data-symptom');
-                        symptoms = symptoms.filter(s => s !== symptomToRemove);
-                        updateSymptomTags();
-                    });
-                });
-            }
             
             // Send chat message
             function sendMessage() {
@@ -1267,310 +986,6 @@
                 .catch(error => {
                     console.error('Error:', error);
                     alert('Error generating PDF.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Execute banking action
-            document.getElementById('execute-banking').addEventListener('click', function() {
-                const action = document.getElementById('banking-action').value;
-                const accountNumber = document.getElementById('account-number').value;
-                const pin = document.getElementById('account-pin').value;
-                const amount = document.getElementById('transaction-amount').value;
-                
-                if (!accountNumber || !pin) {
-                    alert('Please provide account number and PIN.');
-                    return;
-                }
-                
-                if ((action === 'withdraw' || action === 'deposit') && !amount) {
-                    alert('Please provide an amount for this transaction.');
-                    return;
-                }
-                
-                const requestData = {
-                    action: action,
-                    account_number: accountNumber,
-                    pin: pin,
-                    amount: action === 'withdraw' || action === 'deposit' ? parseFloat(amount) : 0,
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Processing...';
-                btn.disabled = true;
-                
-                fetch('/api/atm-operation', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    addMessage(data.message, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error processing banking transaction.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Get medical advice
-            document.getElementById('get-medical-advice').addEventListener('click', function() {
-                const age = document.getElementById('patient-age').value;
-                const gender = document.getElementById('patient-gender').value;
-                
-                if (!age) {
-                    alert('Please provide the patient\'s age.');
-                    return;
-                }
-                
-                if (symptoms.length === 0) {
-                    alert('Please add at least one symptom.');
-                    return;
-                }
-                
-                const requestData = {
-                    symptoms: symptoms,
-                    age: parseInt(age),
-                    gender: gender,
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Analyzing...';
-                btn.disabled = true;
-                
-                fetch('/api/medical-advice', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    
-                    let message = "Medical Analysis:\n\n";
-                    
-                    if (data.symptom_analysis && data.symptom_analysis.length > 0) {
-                        message += "Possible conditions based on your symptoms:\n";
-                        data.symptom_analysis.forEach(condition => {
-                            message += `- ${condition.condition} (${condition.confidence} confidence)\n`;
-                        });
-                        message += "\n";
-                    }
-                    
-                    message += data.additional_advice + "\n\n";
-                    message += "Disclaimer: " + data.disclaimer;
-                    
-                    addMessage(message, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error getting medical advice.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Generate SEO keywords
-            document.getElementById('generate-seo').addEventListener('click', function() {
-                const text = document.getElementById('seo-text').value;
-                const maxKeywords = document.getElementById('seo-max-keywords').value;
-                
-                if (!text) {
-                    alert('Please provide content for SEO analysis.');
-                    return;
-                }
-                
-                const requestData = {
-                    text: text,
-                    max_keywords: parseInt(maxKeywords),
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Generating...';
-                btn.disabled = true;
-                
-                fetch('/api/seo-keywords', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    addMessage("SEO Keywords:\n\n" + data.keywords, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error generating SEO keywords.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Generate automation script
-            document.getElementById('generate-automation').addEventListener('click', function() {
-                const task = document.getElementById('automation-task').value;
-                const platform = document.getElementById('automation-platform').value;
-                
-                if (!task) {
-                    alert('Please describe the task you want to automate.');
-                    return;
-                }
-                
-                const requestData = {
-                    task: task,
-                    platform: platform,
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Generating...';
-                btn.disabled = true;
-                
-                fetch('/api/automation-script', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    
-                    let message = "Automation Script:\n\n";
-                    message += data.script + "\n\n";
-                    message += "Explanation:\n" + data.explanation;
-                    
-                    addMessage(message, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error generating automation script.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Generate guest posting ideas
-            document.getElementById('generate-guest-posting').addEventListener('click', function() {
-                const topic = document.getElementById('guest-topic').value;
-                const audience = document.getElementById('guest-audience').value;
-                
-                if (!topic) {
-                    alert('Please provide a topic for guest posting.');
-                    return;
-                }
-                
-                const requestData = {
-                    topic: topic,
-                    target_audience: audience,
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Generating...';
-                btn.disabled = true;
-                
-                fetch('/api/guest-posting', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    addMessage("Guest Posting Ideas:\n\n" + data.ideas, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error generating guest posting ideas.');
-                })
-                .finally(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                });
-            });
-            
-            // Generate eBay guide
-            document.getElementById('generate-ebay-guide').addEventListener('click', function() {
-                const productType = document.getElementById('ebay-product').value;
-                const budget = document.getElementById('ebay-budget').value;
-                
-                if (!productType) {
-                    alert('Please provide a product type.');
-                    return;
-                }
-                
-                const requestData = {
-                    product_type: productType,
-                    budget: budget,
-                    language: languageSelect.value
-                };
-                
-                // Show loading state
-                const btn = this;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="loader"></span> Generating...';
-                btn.disabled = true;
-                
-                fetch('/api/ebay-freelancing', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(requestData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Switch to chat and show the result
-                    featureButtons[0].click();
-                    addMessage("eBay & Freelancing Guide:\n\n" + data.guide, 'ai');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error generating eBay guide.');
                 })
                 .finally(() => {
                     btn.innerHTML = originalText;

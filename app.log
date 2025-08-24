@@ -1,0 +1,50 @@
+2025-08-21 06:46:58,626 - __main__ - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 06:47:03,625 - __main__ - INFO - Successfully received response from Groq API
+2025-08-21 06:48:41,488 - __main__ - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 06:48:43,130 - __main__ - INFO - Successfully received response from Groq API
+2025-08-21 06:56:00,345 - __main__ - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 06:56:03,844 - __main__ - INFO - Successfully received response from Groq API
+2025-08-21 06:58:01,440 - __main__ - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 06:58:04,051 - __main__ - INFO - Successfully received response from Groq API
+2025-08-21 08:52:42,145 - main - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 08:52:43,742 - main - INFO - Successfully received response from Groq API
+2025-08-21 08:55:42,832 - main - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 08:55:44,124 - main - INFO - Successfully received response from Groq API
+2025-08-21 08:55:49,175 - main - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 08:55:50,647 - main - INFO - Successfully received response from Groq API
+2025-08-21 08:55:53,782 - main - INFO - Sending request to Groq API with model: llama3-70b-8192
+2025-08-21 08:55:55,311 - main - INFO - Successfully received response from Groq API
+2025-08-22 13:09:47,586 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:10:14,391 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:10:48,685 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:11:10,154 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:11:47,341 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:12:11,256 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:13:09,671 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:13:54,564 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:13:57,394 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:15,219 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:20,540 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:22,139 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:23,484 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:24,187 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:14:25,955 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:15:02,324 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:15:02,979 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:15:08,756 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:15:11,252 - main - WARNING - PIXELS_API_KEY not set, using placeholder
+2025-08-22 13:54:39,787 - __main__ - INFO - Created placeholder.jpg
+2025-08-22 13:54:39,803 - __main__ - INFO - Created placeholder.mp4
+2025-08-22 14:10:37,531 - fastapi - WARNING - email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2025-08-22 14:47:21,187 - __main__ - ERROR - Groq error: Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 12982, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing
+2025-08-23 13:38:52,121 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250823_133848.html
+2025-08-24 13:03:50,563 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130322.html
+2025-08-24 13:03:51,893 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130351.html
+2025-08-24 13:03:51,900 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130351.html
+2025-08-24 13:03:51,931 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130351.html
+2025-08-24 13:03:51,937 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130351.html
+2025-08-24 13:04:00,218 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130400.html
+2025-08-24 13:04:10,517 - __main__ - INFO - Index.html backed up to C:\Users\primax\mehwish_chat_ai\Mehwish Chat AI 2.0\static\generated_media\index_backup_20250824_130410.html
+2025-08-24 14:25:38,044 - __main__ - WARNING - No videos found, using placeholder
+2025-08-24 14:28:58,323 - __main__ - WARNING - No videos found, using placeholder

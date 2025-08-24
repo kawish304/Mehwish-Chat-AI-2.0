@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish Chat AI 3.5 - World's Best AI Assistant</title>
+    <style>
+        :root {
+            --primary: #4a6baf;
+            --secondary: #8e44ad;
+            --accent: #e67e22;
+            --light: #f9f9f9;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --info: #3498db;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .creator {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: var(--light);
+            padding: 20px;
+            border-right: 1px solid #eee;
+        }
+        
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-header {
+            padding: 15px 20px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        select, button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        select {
+            background: white;
+            border: 1px solid #ddd;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+        
+        .ai-message {
+            align-self: flex-start;
+            background: #f0f0f0;
+            color: #333;
+            border-bottom-left-radius: 0;
+        }
+        
+        .chat-input {
+            padding: 20px;
+            background: #f5f5f5;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        input, textarea {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: none;
+        }
+        
+        .send-btn {
+            background: var(--secondary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .media-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .media-preview img, .media-preview video {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-output {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .recorder-container {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .recorder-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .recorder-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .record-btn {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .stop-btn {
+            background: var(--success);
+            color: white;
+        }
+        
+        .preview-audio, .preview-video {
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i>🤖</i> Mehwish Chat AI 3.5
+            </div>
+            <div class="tagline">World's Best AI Assistant - Multi-language Support</div>
+            <div class="creator">Created by Syed Kawish Ali • kawish.alisas@gmail.com</div>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>Specialized Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card" onclick="showTab('code-tab')">
+                        <div class="feature-icon">💻</div>
+                        <div class="feature-title">Code Generation</div>
+                        <div class="feature-desc">Generate code in multiple languages</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('media-tab')">
+                        <div class="feature-icon">🖼️</div>
+                        <div class="feature-title">Media Generation</div>
+                        <div class="feature-desc">Create images and videos from text</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('seo-tab')">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-title">SEO Tools</div>
+                        <div class="feature-desc">Generate SEO keywords and content</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('banking-tab')">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-title">Banking & ATM</div>
+                        <div class="feature-desc">Financial advice and simulations</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('medical-tab')">
+                        <div class="feature-icon">🏥</div>
+                        <div class="feature-title">Medical Advice</div>
+                        <div class="feature-desc">Basic health information</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('automation-tab')">
+                        <div class="feature-icon">⚙️</div>
+                        <div class="feature-title">Automation</div>
+                        <div class="feature-desc">Create automation scripts</div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="showTab('recorder-tab')">
+                        <div class="feature-icon">🎥</div>
+                        <div class="feature-title">Audio/Video Recorder</div>
+                        <div class="feature-desc">Record audio and video messages</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3>Chat with Mehwish AI</h3>
+                    <div class="controls">
+                        <select id="language-select">
+                            <option value="english">English</option>
+                            <option value="urdu">Urdu</option>
+                            <option value="roman_urdu">Roman Urdu</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="arabic">Arabic</option>
+                        </select>
+                        <select id="subject-select">
+                            <option value="general">General</option>
+                            <option value="programming">Programming</option>
+                            <option value="banking">Banking</option>
+                            <option value="medical">Medical</option>
+                            <option value="seo">SEO</option>
+                        </select>
+                        <button onclick="clearChat()">Clear Chat</button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        Hello! I'm Mehwish Chat AI 3.5. How can I assist you today?
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+                    <button class="send-btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Code Generation Tab -->
+        <div class="tab-content" id="code-tab">
+            <h3>Code Generation</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div>
+                    <select id="code-language" style="width: 100%; margin-bottom: 10px;">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                    </select>
+                    <textarea id="code-prompt" rows="5" placeholder="Describe what you want to code..." style="width: 100%;"></textarea>
+                    <button onclick="generateCode()" style="width: 100%; margin-top: 10px; background: var(--accent);">Generate Code</button>
+                </div>
+                <div>
+                    <div class="code-output" id="code-output">
+                        // Your generated code will appear here
+                    </div>
+                    <button onclick="copyCode()" style="width: 100%; margin-top: 10px; background: var(--secondary);">Copy Code</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Media Generation Tab -->
+        <div class="tab-content" id="media-tab">
+            <h3>Media Generation</h3>
+            <div style="margin-top: 20px;">
+                <input type="text" id="media-prompt" placeholder="Describe the image or video you want to create..." style="width: 100%;">
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button onclick="generateMedia('image')" style="flex: 1;">Generate Image</button>
+                    <button onclick="generateMedia('video')" style="flex: 1;">Generate Video</button>
+                </div>
+            </div>
+            <div class="media-preview" id="media-preview">
+                <!-- Media will be displayed here -->
+            </div>
+        </div>
+        
+        <!-- Recorder Tab -->
+        <div class="tab-content" id="recorder-tab">
+            <h3>Audio & Video Recorder</h3>
+            
+            <div class="recorder-container">
+                <h4>Audio Recorder</h4>
+                <div class="recorder-controls">
+                    <button class="recorder-btn record-btn" onclick="startAudioRecording()">Start Audio Recording</button>
+                    <button class="recorder-btn stop-btn" onclick="stopAudioRecording()" disabled>Stop Audio Recording</button>
+                </div>
+                <audio class="preview-audio" id="audio-preview" controls></audio>
+                <button class="recorder-btn" onclick="uploadAudio()" style="margin-top: 10px; background: var(--primary); color: white;" disabled id="upload-audio-btn">Upload Audio</button>
+            </div>
+            
+            <div class="recorder-container" style="margin-top: 30px;">
+                <h4>Video Recorder</h4>
+                <div class="recorder-controls">
+                    <button class="recorder-btn record-btn" onclick="startVideoRecording()">Start Video Recording</button>
+                    <button class="recorder-btn stop-btn" onclick="stopVideoRecording()" disabled>Stop Video Recording</button>
+                </div>
+                <video class="preview-video" id="video-preview" controls style="background: #000;"></video>
+                <button class="recorder-btn" onclick="uploadVideo()" style="margin-top: 10px; background: var(--primary); color: white;" disabled id="upload-video-btn">Upload Video</button>
+            </div>
+        </div>
+        
+        <!-- Other tabs would be implemented similarly -->
+        <div class="tab-content" id="seo-tab">
+            <h3>SEO Tools</h3>
+            <p style="margin-top: 15px;">SEO keyword generation tools will be implemented here.</p>
+        </div>
+        
+        <div class="tab-content" id="banking-tab">
+            <h3>Banking & ATM</h3>
+            <p style="margin-top: 15px;">Banking and ATM simulation features will be implemented here.</p>
+        </div>
+        
+        <div class="tab-content" id="medical-tab">
+            <h3>Medical Advice</h3>
+            <p style="margin-top: 15px;">Medical advice features will be implemented here.</p>
+        </div>
+        
+        <div class="tab-content" id="automation-tab">
+            <h3>Automation</h3>
+            <p style="margin-top: 15px;">Automation script generation will be implemented here.</p>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        Operation completed successfully!
+    </div>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'http://localhost:8000';
+        
+        // Current conversation state
+        let conversationId = null;
+        let currentTab = null;
+        
+        // Recording state
+        let audioRecorder = null;
+        let videoRecorder = null;
+        let audioChunks = [];
+        let videoChunks = [];
+        let audioBlob = null;
+        let videoBlob = null;
+        
+        // DOM elements
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const languageSelect = document.getElementById('language-select');
+        const subjectSelect = document.getElementById('subject-select');
+        const notification = document.getElementById('notification');
+        const audioPreview = document.getElementById('audio-preview');
+        const videoPreview = document.getElementById('video-preview');
+        const uploadAudioBtn = document.getElementById('upload-audio-btn');
+        const uploadVideoBtn = document.getElementById('upload-video-btn');
+        
+        // Show a tab and hide others
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab
+            document.getElementById(tabId).classList.add('active');
+            currentTab = tabId;
+        }
+        
+        // Handle key press in message input
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // Send a message to the AI
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            // Add user message to chat
+            addMessage(message, 'user');
+            messageInput.value = '';
+            
+            // Get selected language and subject
+            const language = languageSelect.value;
+            const subject = subjectSelect.value;
+            
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('message', 'ai-message');
+            typingIndicator.textContent = 'Typing...';
+            typingIndicator.id = 'typing-indicator';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            try {
+                // Call the API
+                const response = await fetch(`${API_BASE_URL}/api/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        language: language,
+                        subject: subject,
+                        conversation_id: conversationId
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Remove typing indicator
+                document.getElementById('typing-indicator').remove();
+                
+                // Store conversation ID if this is a new conversation
+                if (!conversationId) {
+                    conversationId = data.conversation_id;
+                }
+                
+                // Add AI response to chat
+                addMessage(data.response, 'ai');
+                
+            } catch (error) {
+                // Remove typing indicator
+                document.getElementById('typing-indicator').remove();
+                
+                // Show error message
+                addMessage(`Error: ${error.message}`, 'ai');
+                showNotification('Failed to get response from AI', 'error');
+            }
+        }
+        
+        // Add a message to the chat
+        function addMessage(content, sender) {
+            const messageEl = document.createElement('div');
+            messageEl.classList.add('message');
+            messageEl.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
+            messageEl.textContent = content;
+            
+            chatMessages.appendChild(messageEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Clear the chat
+        function clearChat() {
+            chatMessages.innerHTML = '';
+            addMessage("Hello! I'm Mehwish Chat AI 3.5. How can I assist you today?", 'ai');
+            conversationId = null;
+        }
+        
+        // Generate code based on prompt
+        async function generateCode() {
+            const language = document.getElementById('code-language').value;
+            const prompt = document.getElementById('code-prompt').value;
+            
+            if (!prompt) {
+                showNotification('Please enter a code description', 'warning');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/code`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        language: language,
+                        conversation_id: conversationId
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                document.getElementById('code-output').textContent = data.raw_response || data.message;
+                showNotification('Code generated successfully!', 'success');
+                
+            } catch (error) {
+                document.getElementById('code-output').textContent = `Error: ${error.message}`;
+                showNotification('Failed to generate code', 'error');
+            }
+        }
+        
+        // Copy code to clipboard
+        function copyCode() {
+            const code = document.getElementById('code-output').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showNotification('Code copied to clipboard!', 'success');
+            });
+        }
+        
+        // Generate media (image or video)
+        async function generateMedia(type) {
+            const prompt = document.getElementById('media-prompt').value;
+            
+            if (!prompt) {
+                showNotification(`Please describe the ${type} you want to generate`, 'warning');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/media/pixel`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        kind: type,
+                        conversation_id: conversationId
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                const mediaPreview = document.getElementById('media-preview');
+                
+                if (type === 'image') {
+                    mediaPreview.innerHTML = `
+                        <p>Generated Image for: "${prompt}"</p>
+                        <img src="${data.url}" alt="Generated Image">
+                    `;
+                } else {
+                    mediaPreview.innerHTML = `
+                        <p>Generated Video for: "${prompt}"</p>
+                        <video controls style="max-width: 100%;">
+                            <source src="${data.url}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+                
+                showNotification(`${type === 'image' ? 'Image' : 'Video'} generated successfully!`, 'success');
+                
+            } catch (error) {
+                showNotification(`Failed to generate ${type}: ${error.message}`, 'error');
+            }
+        }
+        
+        // Audio Recording Functions
+        async function startAudioRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                audioChunks = [];
+                
+                audioRecorder = new MediaRecorder(stream);
+                
+                audioRecorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+                
+                audioRecorder.onstop = () => {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    audioPreview.src = audioUrl;
+                    uploadAudioBtn.disabled = false;
+                };
+                
+                audioRecorder.start();
+                
+                // Update UI
+                document.querySelector('.record-btn').disabled = true;
+                document.querySelector('.stop-btn').disabled = false;
+                
+            } catch (error) {
+                showNotification('Error accessing microphone: ' + error.message, 'error');
+            }
+        }
+        
+        function stopAudioRecording() {
+            if (audioRecorder && audioRecorder.state !== 'inactive') {
+                audioRecorder.stop();
+                audioRecorder.stream.getTracks().forEach(track => track.stop());
+                
+                // Update UI
+                document.querySelector('.record-btn').disabled = false;
+                document.querySelector('.stop-btn').disabled = true;
+            }
+        }
+        
+        // Video Recording Functions
+        async function startVideoRecording() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                videoChunks = [];
+                
+                videoRecorder = new MediaRecorder(stream);
+                
+                videoRecorder.ondataavailable = event => {
+                    videoChunks.push(event.data);
+                };
+                
+                videoRecorder.onstop = () => {
+                    videoBlob = new Blob(videoChunks, { type: 'video/webm' });
+                    const videoUrl = URL.createObjectURL(videoBlob);
+                    videoPreview.src = videoUrl;
+                    uploadVideoBtn.disabled = false;
+                };
+                
+                // Show camera preview
+                videoPreview.srcObject = stream;
+                videoPreview.muted = true;
+                videoPreview.play();
+                
+                videoRecorder.start();
+                
+                // Update UI
+                document.querySelectorAll('.record-btn')[1].disabled = true;
+                document.querySelectorAll('.stop-btn')[1].disabled = false;
+                
+            } catch (error) {
+                showNotification('Error accessing camera: ' + error.message, 'error');
+            }
+        }
+        
+        function stopVideoRecording() {
+            if (videoRecorder && videoRecorder.state !== 'inactive') {
+                videoRecorder.stop();
+                videoRecorder.stream.getTracks().forEach(track => track.stop());
+                
+                // Stop camera preview
+                videoPreview.srcObject = null;
+                
+                // Update UI
+                document.querySelectorAll('.record-btn')[1].disabled = false;
+                document.querySelectorAll('.stop-btn')[1].disabled = true;
+            }
+        }
+        
+        // Upload recorded audio
+        async function uploadAudio() {
+            if (!audioBlob) {
+                showNotification('No audio recorded', 'warning');
+                return;
+            }
+            
+            try {
+                const formData = new FormData();
+                formData.append('audio', audioBlob, 'recording.webm');
+                formData.append('conversation_id', conversationId || '');
+                
+                const response = await fetch(`${API_BASE_URL}/api/upload-audio`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Upload error: ${response.status}`);
+                }
+                
+                showNotification('Audio uploaded successfully!', 'success');
+                
+            } catch (error) {
+                showNotification('Failed to upload audio: ' + error.message, 'error');
+            }
+        }
+        
+        // Upload recorded video
+        async function uploadVideo() {
+            if (!videoBlob) {
+                showNotification('No video recorded', 'warning');
+                return;
+            }
+            
+            try {
+                const formData = new FormData();
+                formData.append('video', videoBlob, 'recording.webm');
+                formData.append('conversation_id', conversationId || '');
+                
+                const response = await fetch(`${API_BASE_URL}/api/upload-video`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Upload error: ${response.status}`);
+                }
+                
+                showNotification('Video uploaded successfully!', 'success');
+                
+            } catch (error) {
+                showNotification('Failed to upload video: ' + error.message, 'error');
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            notification.textContent = message;
+            notification.className = 'notification show';
+            
+            // Set background color based on type
+            if (type === 'success') {
+                notification.style.background = 'var(--success)';
+            } else if (type === 'warning') {
+                notification.style.background = 'var(--warning)';
+            } else if (type === 'error') {
+                notification.style.background = 'var(--danger)';
+            }
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                notification.className = 'notification';
+            }, 3000);
+        }
+        
+        // Initialize the interface
+        function init() {
+            // Add sample features to the chat
+            addMessage("Hello! I'm Mehwish Chat AI 3.5. How can I assist you today?", 'ai');
+            
+            // Set up event listeners
+            messageInput.focus();
+        }
+        
+        // Initialize when page loads
+        window.onload = init;
+    </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+2025-08-18 13:11:58,393 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 13:12:27,792 - MehwishAI - INFO - Chat request - Domain: Domain.GENERAL, Language: Language.ROMAN_URDU
+2025-08-18 13:12:30,282 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:12:30,301 - MehwishAI - ERROR - Chat error: Object of type datetime is not JSON serializable
+2025-08-18 13:20:25,550 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 13:24:49,514 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 13:26:26,480 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:29:18,998 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:30:00,390 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:30:22,177 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:30:33,460 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:30:45,251 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:31:01,448 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:31:21,862 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:53:48,279 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 13:57:05,741 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 13:57:22,573 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:57:28,201 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 13:57:44,737 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:00:03,159 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:00:36,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:01:03,101 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:02:21,166 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:02:57,580 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:03:17,151 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:04:17,740 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:08:15,966 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:09:10,330 - MehwishAI - INFO - AI client initialized successfully
+2025-08-18 14:10:19,055 - MehwishAI - INFO - Chat request - Domain: Domain.GENERAL, Language: Language.ROMAN_URDU
+2025-08-18 14:10:20,508 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:10:20,594 - MehwishAI - ERROR - Chat error: Object of type datetime is not JSON serializable
+2025-08-18 14:10:24,241 - MehwishAI - INFO - Chat request - Domain: Domain.GENERAL, Language: Language.ROMAN_URDU
+2025-08-18 14:10:24,899 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:10:24,914 - MehwishAI - ERROR - Chat error: Object of type datetime is not JSON serializable
+2025-08-18 14:15:22,853 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:15:39,943 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:18:16,889 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:31:18,992 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:32:14,466 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-18 14:32:34,046 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:52:04,518 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:52:20,399 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:52:49,676 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:55:27,646 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:56:11,972 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:56:32,088 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:56:58,490 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:57:47,757 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:59:23,168 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 05:59:56,251 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 06:00:11,311 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 06:00:35,116 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:57:15,049 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:57:37,944 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:58:16,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:58:32,197 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:58:59,774 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 10:59:30,263 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:01:02,242 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:01:25,278 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:01:46,875 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:02:05,074 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:02:33,653 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:02:52,642 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:03:30,525 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:03:53,704 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:05:40,658 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:05:41,687 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 11:05:41,863 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:05:43,872 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 11:05:44,054 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:05:44,058 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 12805, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 11:06:55,143 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:06:56,156 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 11:06:56,324 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:06:58,342 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 11:06:58,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:06:58,550 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 12445, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 11:07:30,524 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:31,545 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 11:07:31,718 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:33,733 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 11:07:33,899 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:33,903 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 12443, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 11:07:51,521 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:52,530 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 11:07:52,973 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:54,984 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 11:07:56,044 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:07:56,045 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 11820, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 11:12:41,067 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:12:42,095 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 11:12:42,377 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:12:44,395 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 11:12:44,713 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 11:12:44,715 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 11818, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 11:15:52,441 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:16:03,120 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:16:23,402 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:17:15,914 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:17:47,477 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:18:38,419 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:19:52,078 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:28:48,767 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:30:21,172 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:30:39,860 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:32:26,704 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:33:19,773 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:34:04,159 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:34:46,364 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:35:37,642 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:37:35,006 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:38:28,167 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:39:23,310 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:39:58,154 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:40:33,426 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:43:19,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:45:07,959 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:45:21,993 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 11:46:32,170 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:00:27,482 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:03:03,783 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:10:51,182 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:12:01,828 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:57:08,019 - MehwishAI - ERROR - Chat error: 56 validation errors for SessionData
+conversation_history.0.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 15, 50, 930903), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.1.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 15, 52, 445062), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.2.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 16, 1, 756417), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.3.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 16, 3, 812395), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.4.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 16, 21, 135692), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.5.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 16, 23, 404065), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.6.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 17, 14, 200617), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.7.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 17, 15, 921488), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.8.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 17, 39, 239255), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.9.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 17, 47, 479514), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.10.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 18, 36, 586942), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.11.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 18, 38, 424801), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.12.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 19, 50, 671893), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.13.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 19, 52, 80614), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.14.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 28, 46, 489101), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.15.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 28, 48, 771270), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.16.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 30, 18, 781642), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.17.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 30, 21, 179269), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.18.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 30, 38, 80009), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.19.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 30, 40, 202931), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.20.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 32, 23, 579712), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.21.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 32, 26, 713353), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.22.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 33, 17, 572656), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.23.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 33, 19, 783085), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.24.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 34, 1, 612560), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.25.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 34, 4, 165576), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.26.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 34, 44, 447601), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.27.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 34, 46, 369800), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.28.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 35, 35, 713819), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.29.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 35, 37, 645910), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.30.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 37, 33, 34185), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.31.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 37, 35, 11146), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.32.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 38, 26, 264815), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.33.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 38, 28, 175829), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.34.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 39, 21, 936725), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.35.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 39, 23, 313933), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.36.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 39, 56, 240079), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.37.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 39, 58, 161196), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.38.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 40, 31, 804507), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.39.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 40, 33, 433029), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.40.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 43, 18, 154191), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.41.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 43, 19, 594201), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.42.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 45, 6, 871192), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.43.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 45, 7, 961551), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.44.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 45, 20, 408101), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.45.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 45, 21, 996876), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.46.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 46, 30, 510130), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.47.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 11, 46, 32, 174231), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.48.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 0, 18, 182085), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.49.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 0, 27, 485766), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.50.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 3, 1, 654080), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.51.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 3, 3, 784895), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.52.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 10, 49, 75734), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.53.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 10, 51, 221142), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.54.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 11, 50, 916262), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+conversation_history.55.timestamp
+  Input should be a valid string [type=string_type, input_value=datetime.datetime(2025, 8, 20, 12, 12, 1, 854684), input_type=datetime]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-08-20 12:57:39,441 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:57:54,246 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 12:58:31,488 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:00:22,099 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.387445 seconds
+2025-08-20 13:00:22,497 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.893572 seconds
+2025-08-20 13:00:24,411 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 13:00:24,425 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.468260 seconds
+2025-08-20 13:00:24,900 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.995183 seconds
+2025-08-20 13:00:27,911 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 13:00:33,724 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.428853 seconds
+2025-08-20 13:00:43,940 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:01:22,434 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.490695 seconds
+2025-08-20 13:01:29,381 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.816789 seconds
+2025-08-20 13:01:34,236 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:02:04,694 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:02:44,849 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:03:47,430 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:04:43,877 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:05:19,591 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:05:44,507 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:08:01,043 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:09:38,870 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:19:02,767 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:20:29,486 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:27:52,999 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.469927 seconds
+2025-08-20 13:27:53,479 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.880556 seconds
+2025-08-20 13:27:55,367 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 13:27:55,388 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.463417 seconds
+2025-08-20 13:28:05,018 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.936761 seconds
+2025-08-20 13:28:07,972 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 13:28:07,991 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.453418 seconds
+2025-08-20 13:28:08,451 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 0.978928 seconds
+2025-08-20 13:28:09,432 - MehwishAI - ERROR - Chat error: Connection error.
+2025-08-20 13:29:08,273 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:30:03,695 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:34:28,280 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:35:12,371 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:35:49,307 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:36:48,054 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:43:05,280 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 13:43:06,299 - MehwishAI - WARNING - Retry 1 for AI request
+2025-08-20 13:43:06,446 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 13:43:08,456 - MehwishAI - WARNING - Retry 2 for AI request
+2025-08-20 13:43:08,599 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2025-08-20 13:43:08,603 - MehwishAI - ERROR - Chat error: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jt62xtqjeawsmsv6zsgcmjtf` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6649, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+2025-08-20 13:43:25,959 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:44:14,768 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:53:47,384 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:55:31,339 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:57:37,050 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:59:11,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 13:59:41,627 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-20 13:59:41,644 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 13.000000 seconds
+2025-08-20 13:59:57,122 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:05:28,671 - MehwishAI - WARNING - GROQ_API_KEY not found. AI features will fallback.
+2025-08-20 14:19:46,970 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:19:46,970 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:19:47,120 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:19:47,239 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:19:47,239 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:21:58,275 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:21:58,275 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:21:58,427 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:21:58,559 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:21:58,559 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:22:22,095 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:22,099 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:22:22,229 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:22,361 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:22,361 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:user' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:22:38,908 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:38,911 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:22:39,039 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:39,173 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:22:39,173 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:23:12,166 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:12,166 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:23:12,286 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:12,419 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:12,419 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:23:27,429 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:27,430 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:23:27,555 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:27,675 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 14:23:27,675 - MehwishAI - ERROR - All AI models failed: Error code: 400 - {'error': {'message': "'messages.1' : for 'role:assistant' the following must be satisfied[('messages.1' : property 'timestamp' is unsupported)]", 'type': 'invalid_request_error'}}
+2025-08-20 14:36:39,920 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:37:01,138 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:37:42,199 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:39:47,717 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:43:04,772 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:45:34,902 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:48:00,838 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:48:28,888 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:53:40,413 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:54:12,161 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 14:58:13,730 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 15:03:06,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-20 15:04:23,612 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+2025-08-20 15:04:23,612 - MehwishAI - WARNING - Model llama3-70b-8192 failed, trying alternatives: Error code: 503 - {'error': {'message': 'Service unavailable. Visit https://groqstatus.com/ to see if there is an active incident.', 'type': 'internal_server_error'}}
+2025-08-20 15:04:23,776 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 15:04:23,905 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-20 15:04:23,906 - MehwishAI - ERROR - All Groq models failed: Error code: 503 - {'error': {'message': 'Service unavailable. Visit https://groqstatus.com/ to see if there is an active incident.', 'type': 'internal_server_error'}}
+2025-08-21 00:17:28,668 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:18:14,236 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:21:23,266 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:25:06,721 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:29:52,401 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:31:11,465 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:31:39,358 - MehwishAI - ERROR - Audio generation failed: Failed to connect. Probable cause: Unknown
+2025-08-21 00:32:42,876 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:33:22,032 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:34:38,779 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:37:04,051 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:37:53,151 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-21 00:37:53,268 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 9.000000 seconds
+2025-08-21 00:38:03,949 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:38:46,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-21 00:38:46,547 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 16.000000 seconds
+2025-08-21 00:39:04,942 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:39:54,726 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:43:13,559 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:43:28,881 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:44:04,173 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:45:48,977 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:46:10,709 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-21 00:49:15,241 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

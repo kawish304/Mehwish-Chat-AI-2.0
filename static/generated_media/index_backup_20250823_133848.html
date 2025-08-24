@@ -1,0 +1,1106 @@
+DOSRA PDF CODER GUESTPOTING SEO KEYWORDS KAHA HAI <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehwish Chat AI 3.5 - World's Best AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        :root {
+            --primary-yellow: #FFD700;
+            --dark-yellow: #FFC400;
+            --black: #1A1A1A;
+            --light-black: #2D2D2D;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: white;
+        }
+        
+        .bg-yellow {
+            background-color: var(--primary-yellow);
+        }
+        
+        .bg-dark {
+            background-color: var(--light-black);
+        }
+        
+        .text-yellow {
+            color: var(--primary-yellow);
+        }
+        
+        .border-yellow {
+            border-color: var(--primary-yellow);
+        }
+        
+        .chat-container {
+            height: 60vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        
+        .user-message {
+            background-color: var(--primary-yellow);
+            color: var(--black);
+            border-radius: 1rem 1rem 0 1rem;
+        }
+        
+        .ai-message {
+            background-color: var(--light-black);
+            color: white;
+            border: 1px solid var(--primary-yellow);
+            border-radius: 1rem 1rem 1rem 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-yellow);
+            color: var(--black);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-yellow);
+        }
+        
+        .conversation-history {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .typing-indicator {
+            display: none;
+        }
+        
+        .typing-indicator.active {
+            display: flex;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-yellow);
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: bounce 1.3s infinite ease-in-out;
+        }
+        
+        .dot:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        
+        .dot:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .code-block {
+            background-color: #2D3748;
+            border-left: 4px solid var(--primary-yellow);
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 0.25rem;
+        }
+        
+        .media-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 0.5rem;
+            border: 2px solid var(--primary-yellow);
+        }
+        
+        .placeholder-media {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--black) 25%, var(--light-black) 25%, var(--light-black) 50%, var(--black) 50%, var(--black) 75%, var(--light-black) 75%, var(--light-black) 100%);
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+            border: 2px dashed var(--primary-yellow);
+            border-radius: 0.5rem;
+        }
+        
+        .api-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .api-status.online {
+            background-color: #10B981;
+            color: white;
+        }
+        
+        .api-status.offline {
+            background-color: #EF4444;
+            color: white;
+        }
+        
+        .api-status.checking {
+            background-color: #6B7280;
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+    <!-- Header -->
+    <header class="bg-yellow text-black py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-robot text-3xl mr-3"></i>
+                <h1 class="text-2xl font-bold">Mehwish Chat AI 3.5</h1>
+            </div>
+            <div class="text-sm">
+                <span class="bg-black text-yellow px-3 py-1 rounded-full">World's Best AI Assistant</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- API Status Banner -->
+    <div class="bg-green-800 text-white py-2 px-4 text-center" id="apiStatusBanner">
+        <div class="container mx-auto">
+            <p class="font-medium">✅ All API Keys Successfully Loaded! GROQ and Pixels APIs are ready to use.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap border-b border-yellow mb-6">
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-yellow" data-tab="chat">
+                <i class="fas fa-comments mr-2"></i>Chat
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="code">
+                <i class="fas fa-code mr-2"></i>Code Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="media">
+                <i class="fas fa-image mr-2"></i>Media Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="seo">
+                <i class="fas fa-search mr-2"></i>SEO Tools
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="pdf">
+                <i class="fas fa-file-pdf mr-2"></i>PDF Generation
+            </button>
+            <button class="tab-btn py-3 px-6 text-yellow font-medium border-b-2 border-transparent hover:border-yellow" data-tab="about">
+                <i class="fas fa-info-circle mr-2"></i>About
+            </button>
+        </div>
+
+        <!-- Chat Tab -->
+        <div id="chat" class="tab-content active">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Chat with Mehwish AI</h2>
+                
+                <!-- Language and Subject Selection -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Language</label>
+                        <select id="language" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="english">English</option>
+                            <option value="urdu">Urdu</option>
+                            <option value="roman_urdu" selected>Roman Urdu</option>
+                            <option value="arabic">Arabic</option>
+                            <option value="french">French</option>
+                            <option value="chinese">Chinese</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Subject</label>
+                        <select id="subject" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="general">General</option>
+                            <option value="programming">Programming</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="banking">Banking</option>
+                            <option value="science">Science</option>
+                            <option value="math">Math</option>
+                            <option value="physics">Physics</option>
+                            <option value="islamic">Islamic Studies</option>
+                            <option value="seo">SEO</option>
+                            <option value="game">Game Development</option>
+                            <option value="cartoon">Cartoon & Animation</option>
+                            <option value="ebay">eBay Selling</option>
+                            <option value="freelancing">Freelancing</option>
+                            <option value="guestposting">Guest Posting</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Media Options -->
+                <div class="flex items-center space-x-4 mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="generateImage" class="form-checkbox text-yellow">
+                        <span class="ml-2">Generate Image</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" id="generateVideo" class="form-checkbox text-yellow">
+                        <span class="ml-2">Generate Video</span>
+                    </label>
+                </div>
+                
+                <!-- Chat Interface -->
+                <div class="chat-container mb-4 p-4 bg-black rounded-lg" id="chatMessages">
+                    <div class="ai-message p-4 mb-4">
+                        <div class="flex items-start">
+                            <div class="bg-yellow text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Mehwish AI</p>
+                                <p>Hello! I'm Mehwish Chat AI 3.5, the world's best AI assistant. How can I help you today?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Typing Indicator -->
+                <div class="typing-indicator mb-4 p-3 bg-black rounded-lg hidden" id="typingIndicator">
+                    <div class="flex items-center">
+                        <div class="bg-yellow text-black rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="flex">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Input Area -->
+                <div class="flex">
+                    <input type="text" id="messageInput" placeholder="Type your message here..." class="flex-grow bg-black border border-yellow rounded-l-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                    <button id="sendMessage" class="btn-primary rounded-r-md px-6 py-3 font-medium">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                
+                <!-- Conversation History -->
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Conversation History</h3>
+                    <div class="conversation-history bg-black p-3 rounded-md" id="conversationHistory">
+                        <p class="text-gray-400 text-sm">No previous conversations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Generation Tab -->
+        <div id="code" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Code Generation</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Programming Language</label>
+                        <select id="codeLanguage" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="js">JavaScript</option>
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Code Purpose</label>
+                        <select id="codePurpose" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="snippet">Code Snippet</option>
+                            <option value="component">Component</option>
+                            <option value="full_page">Full Page</option>
+                            <option value="algorithm">Algorithm</option>
+                            <option value="game">Game</option>
+                            <option value="cartoon">Cartoon</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Explanation Style</label>
+                        <select id="codeStyle" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="default">Default</option>
+                            <option value="roman_urdu">Roman Urdu</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Skill Level</label>
+                        <select id="codeLevel" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Code Prompt</label>
+                    <textarea id="codePrompt" rows="4" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Describe what you want to code..."></textarea>
+                </div>
+                
+                <button id="generateCode" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-code mr-2"></i>Generate Code
+                </button>
+                
+                <div class="bg-black p-4 rounded-md">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Generated Code</h3>
+                    <pre class="code-block text-sm" id="generatedCode">
+                        <code class="text-white">// Your generated code will appear here</code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Generation Tab -->
+        <div id="media" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">Media Generation with Pixels API</h2>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Media Type</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="mediaType" value="image" checked class="form-radio text-yellow">
+                            <span class="ml-2">Image</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="mediaType" value="video" class="form-radio text-yellow">
+                            <span class="ml-2">Video</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Media Prompt</label>
+                    <textarea id="mediaPrompt" rows="3" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Describe the image or video you want to generate..."></textarea>
+                </div>
+                
+                <button id="generateMedia" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-camera mr-2"></i>Generate Media
+                </button>
+                
+                <div class="bg-black p-4 rounded-md text-center">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Generated Media</h3>
+                    <div id="mediaResult" class="flex justify-center items-center min-h-64">
+                        <div class="placeholder-media">
+                            <div class="text-center">
+                                <i class="fas fa-image text-3xl mb-2"></i>
+                                <p>Your generated media will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Tools Tab -->
+        <div id="seo" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">SEO Tools</h2>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Text for SEO Analysis</label>
+                    <textarea id="seoText" rows="4" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Paste your content here for SEO analysis..."></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Maximum Keywords</label>
+                    <input type="number" id="maxKeywords" value="10" min="1" max="50" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                </div>
+                
+                <button id="generateSeo" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-search mr-2"></i>Generate SEO Keywords
+                </button>
+                
+                <div class="bg-black p-4 rounded-md">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Generated Keywords</h3>
+                    <div id="seoResults" class="text-sm">
+                        <p class="text-gray-400">Your SEO keywords will appear here</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-yellow mb-2">Guest Posting Ideas</h3>
+                    <button id="generateGuestPost" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                        <i class="fas fa-pen-fancy mr-2"></i>Generate Guest Posting Ideas
+                    </button>
+                    <div id="guestPostResults" class="bg-black p-4 rounded-md text-sm">
+                        <p class="text-gray-400">Guest posting ideas will appear here</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-yellow mb-2">eBay & Freelancing Guide</h3>
+                    <button id="generateEbayGuide" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                        <i class="fas fa-store mr-2"></i>Generate eBay/Freelancing Guide
+                    </button>
+                    <div id="ebayGuideResults" class="bg-black p-4 rounded-md text-sm">
+                        <p class="text-gray-400">eBay and freelancing guide will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PDF Generation Tab -->
+        <div id="pdf" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">PDF Generation</h2>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Title</label>
+                    <input type="text" id="pdfTitle" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Enter PDF title...">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Author</label>
+                    <input type="text" id="pdfAuthor" value="Mehwish Chat AI" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Content</label>
+                    <textarea id="pdfContent" rows="6" class="w-full bg-black border border-yellow rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-yellow" placeholder="Enter content for your PDF..."></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="includeToc" class="form-checkbox text-yellow">
+                        <span class="ml-2">Include Table of Contents</span>
+                    </label>
+                </div>
+                
+                <button id="generatePdf" class="btn-primary w-full py-3 rounded-md font-medium mb-4">
+                    <i class="fas fa-file-pdf mr-2"></i>Generate PDF
+                </button>
+                
+                <div class="bg-black p-4 rounded-md text-center">
+                    <h3 class="text-lg font-medium text-yellow mb-2">PDF Preview</h3>
+                    <div id="pdfPreview" class="min-h-64 flex items-center justify-center">
+                        <p class="text-gray-400">PDF will be generated and available for download</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <div class="bg-dark rounded-lg shadow-lg p-6 mb-6">
+                <h2 class="text-xl font-bold text-yellow mb-4">About Mehwish Chat AI 3.5</h2>
+                
+                <div class="bg-black p-6 rounded-lg mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow text-black rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">World's Best AI Assistant</h3>
+                            <p class="text-yellow">Version 3.5.0</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-4">Mehwish Chat AI 3.5 is a sophisticated AI assistant that combines the power of Groq LLaMA with Pixel Media generation capabilities. It supports multiple languages and specializes in various subjects.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium text-yellow mb-2">Features</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Multi-language support (English, Urdu, Roman Urdu, Arabic, etc.)</li>
+                                <li>Subject matter expertise in 15+ domains</li>
+                                <li>Code generation for multiple programming languages</li>
+                                <li>Image and video generation via Pixels API</li>
+                                <li>SEO tools and keyword generation</li>
+                                <li>PDF generation and export</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-yellow mb-2">Technical Specs</h4>
+                            <ul class="list-disc list-inside text-sm">
+                                <li>Backend: FastAPI with Python</li>
+                                <li>AI: Groq LLaMA 70B model</li>
+                                <li>Media: Pixels API integration</li>
+                                <li>Frontend: HTML, Tailwind CSS, JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-yellow pt-4">
+                        <h4 class="font-medium text-yellow mb-2">Creator</h4>
+                        <p>Syed Kawish Ali</p>
+                        <p class="text-sm">Email: kawish.alisas@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="bg-black p-6 rounded-lg">
+                    <h3 class="text-lg font-bold text-yellow mb-4">API Health Status</h3>
+                    <div class="flex items-center justify-between mb-4">
+                        <span>Backend Connection</span>
+                        <span id="apiStatus" class="api-status checking">Checking...</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span>GROQ API Key</span>
+                        <span id="groqStatus" class="api-status checking">Checking...</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span>Pixels API Key</span>
+                        <span id="pixelsStatus" class="api-status checking">Checking...</span>
+                    </div>
+                    
+                    <button id="healthCheck" class="btn-primary w-full py-3 rounded-md font-medium">
+                        <i class="fas fa-heartbeat mr-2"></i>Check API Health
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-yellow text-black py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Mehwish Chat AI 3.5. Created by Syed Kawish Ali.</p>
+            <p class="text-sm mt-2">The World's Best AI Assistant</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const messageInput = document.getElementById('messageInput');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const conversationHistory = document.getElementById('conversationHistory');
+        
+        // State
+        let currentConversationId = null;
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up tab navigation
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    activateTab(tabId);
+                });
+            });
+            
+            // Set up message sending
+            sendMessageBtn.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Set up code generation
+            document.getElementById('generateCode').addEventListener('click', generateCode);
+            
+            // Set up media generation
+            document.getElementById('generateMedia').addEventListener('click', generateMedia);
+            
+            // Set up SEO tools
+            document.getElementById('generateSeo').addEventListener('click', generateSeoKeywords);
+            document.getElementById('generateGuestPost').addEventListener('click', generateGuestPosting);
+            document.getElementById('generateEbayGuide').addEventListener('click', generateEbayGuide);
+            
+            // Set up PDF generation
+            document.getElementById('generatePdf').addEventListener('click', generatePdf);
+            
+            // Set up health check
+            document.getElementById('healthCheck').addEventListener('click', checkApiHealth);
+            
+            // Check API health on load
+            checkApiHealth();
+        });
+        
+        // Tab activation function
+        function activateTab(tabId) {
+            // Deactivate all tabs
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            tabButtons.forEach(button => {
+                button.classList.remove('border-yellow');
+                button.classList.add('border-transparent');
+            });
+            
+            // Activate the selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab buttons
+            const activeButton = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            activeButton.classList.remove('border-transparent');
+            activeButton.classList.add('border-yellow');
+        }
+        
+        // Send message function
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            const language = document.getElementById('language').value;
+            const subject = document.getElementById('subject').value;
+            const generateImage = document.getElementById('generateImage').checked;
+            const generateVideo = document.getElementById('generateVideo').checked;
+            
+            // Add user message to chat
+            addMessageToChat('user', message);
+            messageInput.value = '';
+            
+            // Show typing indicator
+            typingIndicator.classList.add('active');
+            
+            // Prepare request data
+            const requestData = {
+                message: message,
+                language: language,
+                subject: subject,
+                image: generateImage,
+                video: generateVideo
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post('/api/chat', requestData)
+                .then(response => {
+                    const data = response.data;
+                    currentConversationId = data.conversation_id;
+                    
+                    // Add AI response to chat
+                    addMessageToChat('assistant', data.response);
+                    
+                    // Update conversation history
+                    updateConversationHistory();
+                    
+                    // Hide typing indicator
+                    typingIndicator.classList.remove('active');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    addMessageToChat('assistant', 'Sorry, there was an error processing your request. Please try again.');
+                    typingIndicator.classList.remove('active');
+                });
+        }
+        
+        // Add message to chat UI
+        function addMessageToChat(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = role === 'user' ? 'user-message p-4 mb-4' : 'ai-message p-4 mb-4';
+            
+            const messageContent = `
+                <div class="flex items-start">
+                    <div class="${role === 'user' ? 'bg-black text-yellow' : 'bg-yellow text-black'} rounded-full w-8 h-8 flex items-center justify-center mr-3">
+                        <i class="fas ${role === 'user' ? 'fa-user' : 'fa-robot'}"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">${role === 'user' ? 'You' : 'Mehwish AI'}</p>
+                        <p>${formatMessageContent(content)}</p>
+                    </div>
+                </div>
+            `;
+            
+            messageDiv.innerHTML = messageContent;
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Format message content (handle code blocks, etc.)
+        function formatMessageContent(content) {
+            // Replace code blocks with formatted version
+            content = content.replace(/```([\s\S]*?)```/g, '<div class="code-block my-2"><code>$1</code></div>');
+            
+            // Replace line breaks
+            content = content.replace(/\n/g, '<br>');
+            
+            return content;
+        }
+        
+        // Update conversation history UI
+        function updateConversationHistory() {
+            if (!currentConversationId) return;
+            
+            conversationHistory.innerHTML = `
+                <p class="text-yellow">Current conversation: ${currentConversationId}</p>
+                <button class="text-sm text-yellow underline mt-2" onclick="exportConversation('${currentConversationId}')">Export this conversation</button>
+            `;
+        }
+        
+        // Export conversation function
+        function exportConversation(conversationId) {
+            window.open(`/api/export-conversation/${conversationId}`, '_blank');
+        }
+        
+        // Generate code function
+        function generateCode() {
+            const prompt = document.getElementById('codePrompt').value.trim();
+            if (!prompt) return;
+            
+            const language = document.getElementById('codeLanguage').value;
+            const style = document.getElementById('codeStyle').value;
+            const purpose = document.getElementById('codePurpose').value;
+            const level = document.getElementById('codeLevel').value;
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generateCode');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                prompt: prompt,
+                language: language,
+                style: style,
+                purpose: purpose,
+                level: level
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post('/api/code', requestData)
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated code
+                    const codeElement = document.getElementById('generatedCode');
+                    codeElement.innerHTML = `<code class="text-white">${data.raw_response}</code>`;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-code mr-2"></i>Generate Code';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating code. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-code mr-2"></i>Generate Code';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate media function
+        function generateMedia() {
+            const prompt = document.getElementById('mediaPrompt').value.trim();
+            if (!prompt) return;
+            
+            const mediaType = document.querySelector('input[name="mediaType"]:checked').value;
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generateMedia');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                prompt: prompt,
+                kind: mediaType
+            };
+            
+            if (currentConversationId) {
+                requestData.conversation_id = currentConversationId;
+            }
+            
+            // Send request to API
+            axios.post('/api/media/pixel', requestData)
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated media
+                    const mediaResult = document.getElementById('mediaResult');
+                    if (mediaType === 'image') {
+                        mediaResult.innerHTML = `<img src="${data.url}" alt="Generated image" class="media-preview">`;
+                    } else {
+                        // For video, check if it's a placeholder
+                        if (data.url.includes('placeholder')) {
+                            mediaResult.innerHTML = `
+                                <div class="placeholder-media">
+                                    <div class="text-center">
+                                        <i class="fas fa-video text-3xl mb-2"></i>
+                                        <p>Video placeholder - set PIXELS_API_KEY for real videos</p>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            mediaResult.innerHTML = `
+                                <video controls class="media-preview">
+                                    <source src="${data.url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            `;
+                        }
+                    }
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-camera mr-2"></i>Generate Media';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating media. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-camera mr-2"></i>Generate Media';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate SEO keywords function
+        function generateSeoKeywords() {
+            const text = document.getElementById('seoText').value.trim();
+            if (!text) return;
+            
+            const maxKeywords = document.getElementById('maxKeywords').value;
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generateSeo');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                text: text,
+                max_keywords: maxKeywords
+            };
+            
+            // Send request to API
+            axios.post('/api/seo-keywords', requestData)
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated keywords
+                    const seoResults = document.getElementById('seoResults');
+                    seoResults.innerHTML = `<p class="whitespace-pre-wrap">${data.keywords}</p>`;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-search mr-2"></i>Generate SEO Keywords';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating SEO keywords. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-search mr-2"></i>Generate SEO Keywords';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate guest posting ideas function
+        function generateGuestPosting() {
+            // Show loading state
+            const generateBtn = document.getElementById('generateGuestPost');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Send request to API
+            axios.post('/api/guest-posting')
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated ideas
+                    const guestPostResults = document.getElementById('guestPostResults');
+                    guestPostResults.innerHTML = `<p class="whitespace-pre-wrap">${data.ideas}</p>`;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-pen-fancy mr-2"></i>Generate Guest Posting Ideas';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating guest posting ideas. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-pen-fancy mr-2"></i>Generate Guest Posting Ideas';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate eBay guide function
+        function generateEbayGuide() {
+            // Show loading state
+            const generateBtn = document.getElementById('generateEbayGuide');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Send request to API
+            axios.post('/api/ebay-freelancing')
+                .then(response => {
+                    const data = response.data;
+                    
+                    // Display generated guide
+                    const ebayGuideResults = document.getElementById('ebayGuideResults');
+                    ebayGuideResults.innerHTML = `<p class="whitespace-pre-wrap">${data.guide}</p>`;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-store mr-2"></i>Generate eBay/Freelancing Guide';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating eBay guide. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-store mr-2"></i>Generate eBay/Freelancing Guide';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Generate PDF function
+        function generatePdf() {
+            const title = document.getElementById('pdfTitle').value.trim();
+            const author = document.getElementById('pdfAuthor').value.trim();
+            const content = document.getElementById('pdfContent').value.trim();
+            const includeToc = document.getElementById('includeToc').checked;
+            
+            if (!title || !content) {
+                alert('Please provide both a title and content for the PDF.');
+                return;
+            }
+            
+            // Show loading state
+            const generateBtn = document.getElementById('generatePdf');
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            generateBtn.disabled = true;
+            
+            // Prepare request data
+            const requestData = {
+                title: title,
+                content: content,
+                author: author,
+                include_toc: includeToc
+            };
+            
+            // Send request to API
+            axios.post('/api/generate-pdf', requestData, { responseType: 'blob' })
+                .then(response => {
+                    // Create a blob from the PDF data
+                    const blob = new Blob([response.data], { type: 'application/pdf' });
+                    const url = window.URL.createObjectURL(blob);
+                    
+                    // Create a download link
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${title.replace(/\s+/g, '_')}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // Clean up
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                    
+                    // Update preview
+                    const pdfPreview = document.getElementById('pdfPreview');
+                    pdfPreview.innerHTML = `
+                        <div class="text-center">
+                            <i class="fas fa-file-pdf text-5xl text-yellow mb-2"></i>
+                            <p>PDF generated successfully!</p>
+                            <p class="text-sm mt-2">"${title}" by ${author}</p>
+                        </div>
+                    `;
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-file-pdf mr-2"></i>Generate PDF';
+                    generateBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating PDF. Please try again.');
+                    
+                    // Reset button
+                    generateBtn.innerHTML = '<i class="fas fa-file-pdf mr-2"></i>Generate PDF';
+                    generateBtn.disabled = false;
+                });
+        }
+        
+        // Check API health function
+        function checkApiHealth() {
+            const apiStatus = document.getElementById('apiStatus');
+            const groqStatus = document.getElementById('groqStatus');
+            const pixelsStatus = document.getElementById('pixelsStatus');
+            
+            apiStatus.textContent = 'Checking...';
+            apiStatus.className = 'api-status checking';
+            groqStatus.textContent = 'Checking...';
+            groqStatus.className = 'api-status checking';
+            pixelsStatus.textContent = 'Checking...';
+            pixelsStatus.className = 'api-status checking';
+            
+            // First check the main health endpoint
+            axios.get('/health')
+                .then(response => {
+                    apiStatus.textContent = 'Online';
+                    apiStatus.className = 'api-status online';
+                    
+                    // Now check the API keys status
+                    return axios.get('/api/check-keys');
+                })
+                .then(response => {
+                    const data = response.data;
+                    
+                    if (data.groq_loaded) {
+                        groqStatus.textContent = `Loaded (${data.groq_length} chars)`;
+                        groqStatus.className = 'api-status online';
+                    } else {
+                        groqStatus.textContent = 'Not Loaded';
+                        groqStatus.className = 'api-status offline';
+                    }
+                    
+                    if (data.pixels_loaded) {
+                        pixelsStatus.textContent = `Loaded (${data.pixels_length} chars)`;
+                        pixelsStatus.className = 'api-status online';
+                    } else {
+                        pixelsStatus.textContent = 'Not Loaded';
+                        pixelsStatus.className = 'api-status offline';
+                    }
+                })
+                .catch(error => {
+                    console.error('API health check failed:', error);
+                    apiStatus.textContent = 'Offline';
+                    apiStatus.className = 'api-status offline';
+                    groqStatus.textContent = 'Error';
+                    groqStatus.className = 'api-status offline';
+                    pixelsStatus.textContent = 'Error';
+                    pixelsStatus.className = 'api-status offline';
+                });
+        }
+    </script>
+</body>
+</html> 
