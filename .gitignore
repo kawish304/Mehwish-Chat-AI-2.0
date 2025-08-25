@@ -2,3 +2,4 @@
 *.mp4 
 /videos/ 
 __pycache__/ 
+".env" 
