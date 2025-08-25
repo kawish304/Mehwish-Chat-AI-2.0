@@ -1,1 +1,58 @@
 MIT License  MIT License
+🌙 Mehwish Chat AI 2.0 – Islamic + Tech Digital Assistant
+
+Powered by Groq LLaMA | Built with FastAPI
+
+✨ Overview
+
+Mehwish Chat AI 2.0 ek multilingual AI digital assistant hai jo Islamic guidance + modern technology solutions ek saath provide karta hai.
+Ye project Groq’s LLaMA-3 models par based hai aur specially design kiya gaya hai for:
+
+📖 Islamic Knowledge (Quran & Hadith references)
+
+💻 Technical & Programming Help
+
+🌍 Multilingual Conversations (English, Urdu, Roman Urdu, Arabic)
+
+🎨 AI-powered Image/Media Generation
+
+🚀 Features
+
+🔹 Groq LLaMA 70B integration for ultra-fast inference
+
+🔹 REST API (FastAPI) with ready endpoints
+
+🔹 Frontend support with Jinja2 templates & static files
+
+🔹 Image & Pixel AI API integration
+
+🔹 Cross-platform access (PC + Mobile friendly)
+
+🔹 Clean project structure for easy deployment
+
+📂 Project Structure
+Mehwish-Chat-AI-2.0/
+│── main.py              # FastAPI entrypoint
+│── templates/           # Jinja2 frontend HTML
+│── static/              # CSS / JS / Images
+│── .env                 # API keys (Groq, Pixels etc.)
+│── LICENSE              # MIT License
+│── README.md            # Documentation
+
+⚡ Quick Start
+# Clone repo
+git clone https://github.com/kawish304/Mehwish-Chat-AI-2.0.git
+cd Mehwish-Chat-AI-2.0
+
+# Install requirements
+pip install -r requirements.txt
+
+# Run server
+uvicorn main:app --reload
+
+
+Open in browser: 👉 http://127.0.0.1:8000
+
+📜 License
+
+This project is licensed under the MIT License – free to use, modify, and distribute with attribution
